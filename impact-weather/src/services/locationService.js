@@ -38,6 +38,7 @@ export function getUserCoordinates() {
             
             // Options Object
             {
+            enableHighAccuracy: true, 
             timeout: 5000,           
             maximumAge: 0            
             }
