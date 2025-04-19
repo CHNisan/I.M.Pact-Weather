@@ -1,5 +1,5 @@
 /**
- * Gets the user's current coordinates
+ * Gets the user's current coordinates from the geolocation API
  * @returns {Promise<{latitude: number, longitude: number}>} User coordinates
  */
 export function getUserCoordinates() {
@@ -75,4 +75,27 @@ export function getUserCoordinates() {
             }
         );
     });
+}
+
+
+
+/**
+ * Gets the user's current coordinates from the IP API
+ * @returns {Promise<{latitude: number, longitude: number, isApproximate: bool}>} User coordinates and flag to show if it's an approximation
+ */
+export async function getApproximateLocationFromIP() {
+    try {
+        const response = await fetch('https://ipapi.co/json/');
+        if (!response.ok) throw new Error('Failed to fetch location from IP');
+        
+        const data = await response.json();
+        return {
+            latitude: data.latitude,
+            longitude: data.longitude,
+            isApproximate: true 
+        };
+    } catch (error) {
+        console.error('IP location fallback failed:', error);
+        throw error;
+    }
 }
