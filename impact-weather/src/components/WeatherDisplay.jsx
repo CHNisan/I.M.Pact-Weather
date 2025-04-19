@@ -84,7 +84,6 @@ function WeatherDisplay() {
     };
   }, [location.latitude, location.longitude]);
 
-  // Retry functionality
   const handleRetry = () => {
     setError(null);
     setLoading(true);
