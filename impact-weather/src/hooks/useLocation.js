@@ -6,7 +6,7 @@ import { getLocationFromGPS, getApproximateLocationFromIP } from '../services/lo
  * @returns {Object} Location data and related functions
  */
 export function useLocation() {
-  const [location, setLocation] = useState({ latitude: null, longitude: null, source: null });
+  const [location, setLocation] = useState({ latitude: null, longitude: null});
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [isApproximateLocation, setIsApproximateLocation] = useState(false);
@@ -20,11 +20,8 @@ export function useLocation() {
         ? await getApproximateLocationFromIP()
         : await getLocationFromGPS();
 
-      setLocation({ 
-        latitude: coordinates.latitude, 
-        longitude: coordinates.longitude, 
-        source: coordinates.isApproximate ? 'ip' : 'gps'});
-      setIsApproximateLocation(!!coordinates.isApproximate); // fallback includes flag
+      setLocation({ latitude: coordinates.latitude, longitude: coordinates.longitude });
+      setIsApproximateLocation(coordinates.isApproximate); // fallback includes flag
       console.log("Got location:", coordinates);
     } catch (err) {
       console.error("Location error:", err);
@@ -33,7 +30,7 @@ export function useLocation() {
         try {
           // Try fallback to approximate
           const fallback = await getApproximateLocationFromIP();
-          setLocation({ latitude: fallback.latitude, longitude: fallback.longitude });
+          setLocation({ latitude: fallback.latitude, longitude: fallback.longitude, source: "ip" });
           setIsApproximateLocation(true);
         } catch (fallbackErr) {
           setError("Location access denied and fallback failed. Please enable location services or try again later.");

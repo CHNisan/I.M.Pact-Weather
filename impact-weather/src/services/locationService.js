@@ -31,7 +31,7 @@ export function getLocationFromGPS() {
                     return;
                 }
                 
-                resolve({ latitude, longitude });
+                resolve({ latitude, longitude, isApproximate: false });
             },
             
             // Error Callback
