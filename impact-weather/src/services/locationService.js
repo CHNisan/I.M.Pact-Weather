@@ -2,7 +2,7 @@
  * Gets the user's current coordinates from the geolocation API
  * @returns {Promise<{latitude: number, longitude: number}>} User coordinates
  */
-export function getUserCoordinates() {
+export function getLocationFromGPS() {
     return new Promise((resolve, reject) => {
         // Check browser compatibility
         if (!navigator.geolocation) {
