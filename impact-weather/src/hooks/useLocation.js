@@ -7,39 +7,40 @@ import { getLocationFromGPS, getApproximateLocationFromIP } from '../services/lo
  */
 export function useLocation() {
   const [location, setLocation] = useState({ latitude: null, longitude: null});
-  const [loading, setLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
   const [isApproximateLocation, setIsApproximateLocation] = useState(false);
 
-  const fetchLocation = async (useIPFallback = false) => {
-    setLoading(true);
+  const fetchLocation = async (useIPFallbackFirst = false) => {
+    setIsLoading(true);
     setError(null);
 
     try {
-      const coordinates = useIPFallback
+      const coordinates = useIPFallbackFirst
         ? await getApproximateLocationFromIP()
         : await getLocationFromGPS();
 
       setLocation({ latitude: coordinates.latitude, longitude: coordinates.longitude });
-      setIsApproximateLocation(coordinates.isApproximate); // fallback includes flag
+      setIsApproximateLocation(coordinates.isApproximate); // flag to indicate if the IP coordinates are used instead of GPS
       console.log("Got location:", coordinates);
     } catch (err) {
       console.error("Location error:", err);
 
-      if (err.code === 'PERMISSION_DENIED') {
+      if (!useIPFallbackFirst) {
         try {
           // Try fallback to approximate
-          const fallback = await getApproximateLocationFromIP();
-          setLocation({ latitude: fallback.latitude, longitude: fallback.longitude, source: "ip" });
+          const fallbackCoordinates = await getApproximateLocationFromIP();
+          setLocation({ latitude: fallbackCoordinates.latitude, longitude: fallbackCoordinates.longitude});
           setIsApproximateLocation(true);
         } catch (fallbackErr) {
-          setError("Location access denied and fallback failed. Please enable location services or try again later.");
+          setError("Location access denied/error and fallback failed. Please enable location services or try again later. Error: " + err.message);
         }
-      } else {
+      } else{
         setError(err.message || "Unable to retrieve location.");
       }
+      
     } finally {
-      setLoading(false);
+      setIsLoading(false);
     }
   };
 
@@ -50,7 +51,7 @@ export function useLocation() {
   return {
     location,
     isApproximateLocation,
-    locationLoading: loading,
+    isLocationLoading: isLoading,
     locationError: error,
     fetchLocation,
   };
