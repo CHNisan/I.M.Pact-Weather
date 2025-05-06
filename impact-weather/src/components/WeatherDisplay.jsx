@@ -1,6 +1,7 @@
 import React from 'react';
 import useLocation from '../hooks/useLocation';
 import useWeather from '../hooks/useWeather';
+import {matchPlace} from '../services/matchingService'
 
 function WeatherDisplay() {
   //#region Hooks
@@ -28,6 +29,8 @@ function WeatherDisplay() {
     temp === undefined || temp === null ? 'N/A' : `${Math.round(temp)}°C`
   );
   //#endregion
+
+  console.log(matchPlace({weatherData: {main: {temp: 15}, weather: [{id: 300}]}}))
 
   //#region Render functions
   const renderWeatherItem = (label, value) => (
