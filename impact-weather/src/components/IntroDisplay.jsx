@@ -2,6 +2,7 @@ import React from 'react';
 import useLocation from '../hooks/useLocation';
 import useWeather from '../hooks/useWeather';
 import {matchPlace} from '../services/matchingService'
+import '../styles/IntroDisplayStyle.css';
 
 function IntroDisplay() {
   //#region Hooks
@@ -43,10 +44,10 @@ function IntroDisplay() {
   // Render loading, error, or weather content
   const renderContent = () => {
     // Loading
-    if (loading && !weather) {
+    if (loading && !weather || true) {
       return (
-        <div className="flex items-center justify-center">
-          <div className="text-xl font-medium text-gray-700">Loading weather information...</div>
+        <div className="intro-container">
+          <h2>Loading...</h2>
         </div>
       );
     }
