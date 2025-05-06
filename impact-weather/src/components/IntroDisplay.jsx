@@ -3,7 +3,7 @@ import useLocation from '../hooks/useLocation';
 import useWeather from '../hooks/useWeather';
 import {matchPlace} from '../services/matchingService'
 
-function WeatherDisplay() {
+function IntroDisplay() {
   //#region Hooks
   const {
     location,
@@ -157,4 +157,4 @@ function WeatherDisplay() {
   //#endregion
 }
 
-export default WeatherDisplay;
+export default IntroDisplay;

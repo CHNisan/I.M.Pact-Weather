@@ -1,9 +1,9 @@
-import WeatherDisplay from "./components/WeatherDisplay.jsx"
+import IntroDisplay from "./components/IntroDisplay.jsx"
 
 function App() {
   return (
     <>
-      <WeatherDisplay/>
+      <IntroDisplay/>
     </>
   )
 }
