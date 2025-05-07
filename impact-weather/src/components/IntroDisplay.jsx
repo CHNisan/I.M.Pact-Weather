@@ -33,18 +33,10 @@ function IntroDisplay() {
 
   console.log(matchPlace({weatherData: {main: {temp: 15}, weather: [{id: 300}]}}))
 
-  //#region Render functions
-  const renderWeatherItem = (label, value) => (
-    <div className="flex justify-between">
-      <span className="text-gray-600">{label}:</span>
-      <span className="font-medium">{value}</span>
-    </div>
-  );
-
   // Render loading, error, or weather content
   const renderContent = () => {
     // Loading
-    if (loading && !weather || true) {
+    if (loading && !weather) {
       return (
         <div className="intro-container">
           <h2>Loading...</h2>
@@ -78,75 +70,17 @@ function IntroDisplay() {
       );
     }
 
-    return (
-      <>
-        {/* Location section */}
-        <div className="mb-6">
-          <h2 className="text-xl font-bold text-gray-800">Location</h2>
-          {location?.latitude && location?.longitude ? (
-            <div>
-              <p className="text-gray-600">
-                Latitude: {location.latitude.toFixed(4)} | Longitude: {location.longitude.toFixed(4)}
-              </p>
-              {isApproximateLocation && (
-                <p className="text-amber-600 text-sm mt-1">
-                  Using approximate location based on IP address. For more accurate results, 
-                  please enable location services.
-                </p>
-              )}
-            </div>
-          ) : (
-            <p className="text-gray-500">Location data unavailable</p>
-          )}
+    return(
+      <div>
+        <p className="intro-text">Salutations Sinner!</p>
+        <p className="intro-text">20° and roaring</p>
+        <div className="intro-title-container">
+          <p className="intro-subtitle top-subtitle">it's the</p>
+          <h2 className='intro-title'>Pride Ring</h2>
+          <p className="intro-subtitle bottom-subtitle">out there</p>
         </div>
-
-        {/* Weather section */}
-        <div className="mb-6">
-          <h2 className="text-xl font-bold text-gray-800">Weather Information</h2>
-          {weather?.weatherData?.main ? (
-            <div className="mt-2 space-y-2">
-              {renderWeatherItem('Temperature', formatTemp(weather.weatherData.main.temp))}
-              {renderWeatherItem('Feels Like', formatTemp(weather.weatherData.main.feels_like))}
-              
-              {weather.weatherData.weather?.[0] && 
-                renderWeatherItem('Conditions', weather.weatherData.weather[0].description || 'N/A')}
-              
-              {weather.weatherData.wind && 
-                renderWeatherItem('Wind', `${weather.weatherData.wind.speed || 'N/A'} m/s, ${weather.weatherData.wind.deg || 'N/A'}°`)}
-              
-              {weather.weatherData.main.humidity !== undefined && 
-                renderWeatherItem('Humidity', `${weather.weatherData.main.humidity}%`)}
-              
-              {weather.timestamp && (
-                <div className="text-xs text-gray-400 mt-2">
-                  Last updated: {new Date(weather.timestamp).toLocaleTimeString()}
-                </div>
-              )}
-            </div>
-          ) : (
-            <p className="text-gray-500">Weather data unavailable</p>
-          )}
-        </div>
-        
-        {/* Action buttons */}
-        <div className="flex space-x-2">
-          <button 
-            className="flex-1 px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600"
-            onClick={() => fetchLocation(false)}
-          >
-            Refresh Data
-          </button>
-          
-          {!isApproximateLocation && (
-            <button 
-              className="flex-1 px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600"
-              onClick={() => fetchLocation(true)}
-            >
-              Use IP Location
-            </button>
-          )}
-        </div>
-      </>
+        <p className="intro-text">"This face was made for radio"</p>
+      </div>
     );
   };
 
