@@ -80,6 +80,7 @@ function IntroDisplay() {
           <p className="intro-subtitle bottom-subtitle">out there</p>
         </div>
         <p className="intro-text">"This face was made for radio"</p>
+        <p className="nav-text">show more</p>
       </div>
     );
   };
