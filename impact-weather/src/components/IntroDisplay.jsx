@@ -8,6 +8,7 @@ import '../styles/IntroDisplayStyle.css';
 function IntroDisplay() {
   //#region State
     const [matchedPlace, setMatchedPlace] = useState()
+    const [currCharacter, setCurrCharacter] = useState()
   //endregion
 
 
@@ -31,7 +32,10 @@ function IntroDisplay() {
     setMatchedPlace(matchPlace(weather))
   }, [weather])
 
-  useEffect(() => { // Setting CSS variables in the root element
+  useEffect(() => { 
+    setCurrCharacter(matchedPlace?.character)
+
+    // Setting CSS variables in the root element
     const root = document.documentElement;
     root.style.setProperty('--background-image', `url("${matchedPlace?.character?.image?.src}")`);
     root.style.setProperty('--background-color', matchedPlace?.character?.image?.color);
@@ -44,8 +48,11 @@ function IntroDisplay() {
     temp === undefined || temp === null ? 'N/A' : `${Math.round(temp)}°C`
   );
 
-  function createPositionStyle(vertical, horizontal, isTopLeftAnchor = true) {
-    return isTopLeftAnchor ? { "--top": `${vertical}%`, "--left": `${horizontal}%` } : { "--bottom": `${vertical}%`, "--right": `${horizontal}%` }
+  // Create the inline style for setting the top, left, bottom and right position variables for the into-text CSS elements
+  function createPositionStyle(dialogueLocations, isTopLeftAnchor = true) {
+    return isTopLeftAnchor ? 
+      { "--top": `${dialogueLocations.top}%`, "--left": `${dialogueLocations.left}%` } : 
+      { "--bottom": `${dialogueLocations.bottom}%`, "--right": `${dialogueLocations.right}%` }
   };
   //#endregion
 
@@ -95,14 +102,24 @@ function IntroDisplay() {
 
     return(
       <div>
-        <p className="intro-text" style={createPositionStyle(matchedPlace.character.image.dialogueLocations.greeting.top, matchedPlace.character.image.dialogueLocations.greeting.left)}>{matchedPlace.character.dialogue.greeting}</p>
-        <p className="intro-text" style={createPositionStyle(matchedPlace.character.image.dialogueLocations.weather.top, matchedPlace.character.image.dialogueLocations.weather.left)}>{`${formatTemp(weather?.weatherData?.main?.temp)} ${matchedPlace.character.dialogue.weather}`}</p>
+        <p className="intro-text" style={createPositionStyle(currCharacter?.image?.dialogueLocations?.greeting)}>
+          {currCharacter?.dialogue?.greeting}
+        </p>
+
+        <p className="intro-text" style={createPositionStyle(currCharacter?.image?.dialogueLocations?.weather)}>
+          {`${formatTemp(weather?.weatherData?.main?.temp)} ${currCharacter?.dialogue?.weather}`}
+        </p>
+
         <div className="intro-title-container">
-          <p className="intro-subtitle top-subtitle">{matchedPlace.character.dialogue.titleBegining}</p>
-          <h2 className='intro-title'>{matchedPlace.name}</h2>
-          <p className="intro-subtitle bottom-subtitle">{matchedPlace.character.dialogue.titleEnd}</p>
+          <p className="intro-subtitle top-subtitle">{currCharacter?.dialogue?.titleBegining}</p>
+          <h2 className='intro-title'>{matchedPlace?.name}</h2>
+          <p className="intro-subtitle bottom-subtitle">{currCharacter?.dialogue?.titleEnd}</p>
         </div>
-        <p className="intro-text" style={createPositionStyle(matchedPlace.character.image.dialogueLocations.quote.bottom, matchedPlace.character.image.dialogueLocations.quote.right, false)}>"{matchedPlace.character.quotes}"</p>
+
+        <p className="intro-text" style={createPositionStyle(currCharacter?.image?.dialogueLocations?.quote, false)}>
+          "{currCharacter?.quotes}"
+        </p>
+
         <p className="nav-text">show more</p>
       </div>
     );
