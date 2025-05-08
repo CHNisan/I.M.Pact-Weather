@@ -30,6 +30,12 @@ function IntroDisplay() {
   useEffect(() => {
     setMatchedPlace(matchPlace(weather))
   }, [weather])
+
+  useEffect(() => { // Setting CSS variables in the root element
+    const root = document.documentElement;
+    root.style.setProperty('--background-image', `url("${matchedPlace?.character?.image?.src}")`);
+    root.style.setProperty('--background-color', matchedPlace?.character?.image?.color);
+  }, [matchedPlace])
   //#endregion
 
 

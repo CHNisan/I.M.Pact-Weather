@@ -26,6 +26,7 @@ const placeData = [
                 image: {
                     src: "../../public/images/Pride Ring/Pride Ring extreme wide shot.png",
                     description: "Outside of the Hazbin Hotel, looking over the Pride Ring",
+                    color: "#621a27",
                     dialogueLocations: { // Locations the text should be placed on the screen for the main section
                         greeting: {top: 0, left: 0}, // Percent from the corners of the screen the text should be placed
                         weather: {top: 0, left: 0},
@@ -49,6 +50,7 @@ const placeData = [
                 image: {
                     src: "../../public/images/Pride Ring/Pride Ring extreme wide shot.png",
                     description: "Extreme wide shot of the Pride Ring, looking down",
+                    color: "#621a27",
                     dialogueLocations: { // Locations the text should be placed on the screen for the main section
                         greeting: {top: 0, left: 0}, // Percent from the corners of the screen the text should be placed
                         weather: {top: 0, left: 0},
@@ -86,6 +88,7 @@ const placeData = [
                 image: {
                     src: "",
                     description: "",
+                    color: "#000000",
                     dialogueLocations: { // Locations the text should be placed on the screen for the main section
                         greeting: {top: 0, left: 0}, // Percent from the corners of the screen the text should be placed
                         weather: {top: 0, left: 0},
