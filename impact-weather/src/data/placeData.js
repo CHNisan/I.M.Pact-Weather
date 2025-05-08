@@ -24,13 +24,12 @@ const placeData = [
                 },
                 quotes: "This face was made for radio",
                 image: {
-                    src: "https://static.wikia.nocookie.net/hazbinhotel/images/f/f2/Hazbin_Hotel_Back_View.jpg/revision/latest?cb=20240308021418",
+                    src: "../../public/images/Pride Ring/Pride Ring extreme wide shot.png",
                     description: "Outside of the Hazbin Hotel, looking over the Pride Ring",
                     dialogueLocations: { // Locations the text should be placed on the screen for the main section
-                        greeting: {x: 0, y: 0},
-                        weather: {x: 0, y: 0},
-                        titleBegining: {x: 0, y: 0},
-                        titleEnd: {x: 0, y: 0}
+                        greeting: {top: 0, left: 0}, // Percent from the corners of the screen the text should be placed
+                        weather: {top: 0, left: 0},
+                        quote: {bottom: 0, right: 0}
                     }
                 }
             },
@@ -48,16 +47,52 @@ const placeData = [
                 },
                 quotes: "Popsicles, ya sicko!",
                 image: {
-                    src: "https://static.wikia.nocookie.net/the-rp-crew/images/f/f1/The_Pride_Ring.jpg/revision/latest?cb=20231213175256",
+                    src: "../../public/images/Pride Ring/Pride Ring extreme wide shot.png",
                     description: "Extreme wide shot of the Pride Ring, looking down",
                     dialogueLocations: { // Locations the text should be placed on the screen for the main section
-                        greeting: {x: 0, y: 0},
-                        weather: {x: 0, y: 0},
-                        titleBegining: {x: 0, y: 0},
-                        titleEnd: {x: 0, y: 0}
+                        greeting: {top: 0, left: 0}, // Percent from the corners of the screen the text should be placed
+                        weather: {top: 0, left: 0},
+                        quote: {bottom: 0, right: 0}
                     }
                 }
             },
+        ],
+
+        
+
+        info:[
+            "The Pride Ring is one of the seven Rings of Hell and is the first and topmost ring within Hell.\nSinners are confined to and can only exist in this ring, however, like the other rings in Hell, the Pride Ring is accessible and traversable by Hellborn species.",
+            "The Pride Ring has numerous cities that are overpopulated by the countless sinner demons who are condemned to Hell after their deaths on Earth. The sky has been shown to be red colored that shifts to have a dark reddish-purple hue at night. Also from this ring, the pentagram moon and Heaven are visible in the sky. Its full moon is a glowing orb with light swirling around it.",
+            "This ring experiences yearly attacks by the Exorcists in order to quell the overpopulation crisis and prevent an uprising from Hell's Sinner population. As per Lucifer's pardon from Heaven, the Hellborn of the Pride Ring, and by extension the rest of Hell, are to be spared from the Extermination."
+        ]
+    },
+    {
+        name: "Default", // Must stay as the last location in the list
+
+        minTemp: -999, // Degress Celsius 
+        maxTemp: 999, // Degress Celsius
+
+        characters: [
+            {
+                name: "Default",
+                conditionCodes: [],
+                dialogue: {
+                    greeting: "No match",
+                    weather: "Weather matches no place in database",
+                    titleBegining: "Default",
+                    titleEnd: "Default"
+                },
+                quotes: "Try again later",
+                image: {
+                    src: "",
+                    description: "",
+                    dialogueLocations: { // Locations the text should be placed on the screen for the main section
+                        greeting: {top: 0, left: 0}, // Percent from the corners of the screen the text should be placed
+                        weather: {top: 0, left: 0},
+                        quote: {bottom: 0, right: 0}
+                    }
+                }
+            }
         ],
 
         

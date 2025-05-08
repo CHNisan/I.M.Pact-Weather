@@ -7,8 +7,8 @@ import placeData from "../data/placeData";
  */
 export function matchPlace(weatherData) {
     try{
-        const currentTemp = weatherData.weatherData.main.temp;
-        const conditionCode = weatherData.weatherData.weather[0].id;
+        const currentTemp = weatherData?.weatherData?.main?.temp;
+        const conditionCode = weatherData?.weatherData?.weather[0]?.id;
 
         // Find a place with matching temperature range
         for (const place of placeData) {
@@ -29,11 +29,11 @@ export function matchPlace(weatherData) {
         }
     
         // No match found
-        return null;
+        return placeData[placeData.length - 1]; // Returning default place data
     }
 
     catch(error){
         console.error("Issue reading weather or place data:", error)
-        return null;
+        return placeData[placeData.length - 1];
     }
 }
