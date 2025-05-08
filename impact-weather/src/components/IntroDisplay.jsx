@@ -51,8 +51,8 @@ function IntroDisplay() {
   // Create the inline style for setting the top, left, bottom and right position variables for the into-text CSS elements
   function createPositionStyle(dialogueLocations, isTopLeftAnchor = true) {
     return isTopLeftAnchor ? 
-      { "--top": `${dialogueLocations.top}%`, "--left": `${dialogueLocations.left}%` } : 
-      { "--bottom": `${dialogueLocations.bottom}%`, "--right": `${dialogueLocations.right}%` }
+      { "--top": `${dialogueLocations?.top}%`, "--left": `${dialogueLocations?.left}%` } : 
+      { "--bottom": `${dialogueLocations?.bottom}%`, "--right": `${dialogueLocations?.right}%` }
   };
   //#endregion
 
