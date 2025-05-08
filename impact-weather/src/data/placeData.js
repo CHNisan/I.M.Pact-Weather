@@ -78,7 +78,7 @@ const placeData = [
                 conditionCodes: [],
                 dialogue: {
                     greeting: "No match",
-                    weather: "Weather matches no place in database",
+                    weather: "in default",
                     titleBegining: "Default",
                     titleEnd: "Default"
                 },

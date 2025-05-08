@@ -6,6 +6,11 @@ import {matchPlace} from '../services/matchingService'
 import '../styles/IntroDisplayStyle.css';
 
 function IntroDisplay() {
+  //#region State
+    const [matchedPlace, setMatchedPlace] = useState()
+  //endregion
+
+
   //#region Hooks
   const {
     location,
@@ -22,15 +27,11 @@ function IntroDisplay() {
     fetchWeather
   } = useWeather(location?.latitude, location?.longitude);
 
-  const [matchedPlace, setMatchedPlace] = useState()
-
   useEffect(() => {
     setMatchedPlace(matchPlace(weather))
   }, [weather])
   //#endregion
 
-  const loading = isLocationLoading || isWeatherLoading;
-  const error = locationError || weatherError;
 
   //#region Help functions
   const formatTemp = (temp) => (
@@ -38,7 +39,12 @@ function IntroDisplay() {
   );
   //#endregion
 
+
+  const loading = isLocationLoading || isWeatherLoading;
+  const error = locationError || weatherError;
+
   console.log(matchedPlace)
+
 
   // Render loading, error, or weather content
   const renderContent = () => {
@@ -79,14 +85,14 @@ function IntroDisplay() {
 
     return(
       <div>
-        <p className="intro-text">Salutations Sinner!</p>
-        <p className="intro-text">20° and roaring</p>
+        <p className="intro-text">{matchedPlace.character.dialogue.greeting}</p>
+        <p className="intro-text">{`${formatTemp(weather?.weatherData?.main?.temp)} ${matchedPlace.character.dialogue.weather}`}</p>
         <div className="intro-title-container">
-          <p className="intro-subtitle top-subtitle">it's the</p>
-          <h2 className='intro-title'>Pride Ring</h2>
-          <p className="intro-subtitle bottom-subtitle">out there</p>
+          <p className="intro-subtitle top-subtitle">{matchedPlace.character.dialogue.titleBegining}</p>
+          <h2 className='intro-title'>{matchedPlace.name}</h2>
+          <p className="intro-subtitle bottom-subtitle">{matchedPlace.character.dialogue.titleEnd}</p>
         </div>
-        <p className="intro-text">"This face was made for radio"</p>
+        <p className="intro-text">"{matchedPlace.character.quotes}"</p>
         <p className="nav-text">show more</p>
       </div>
     );
