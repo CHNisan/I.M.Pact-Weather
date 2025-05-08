@@ -19,7 +19,11 @@ export function matchPlace(weatherData) {
                 
                 // If a character exists with a matching condition code, return it, if not continue onto the next place within the temperature range
                 if (character) {
-                    return {place};
+                    return { // Returning default place data
+                        name: place.name,
+                        character: character,
+                        info: place.info
+                    }; 
                 }
             }
         }
@@ -35,7 +39,7 @@ export function matchPlace(weatherData) {
 
     catch(error){
         console.error("Issue reading weather or place data:", error)
-        
+
         const defaultPlace = placeData[placeData.length - 1];
         return { // Returning default place data
             name: defaultPlace.name,

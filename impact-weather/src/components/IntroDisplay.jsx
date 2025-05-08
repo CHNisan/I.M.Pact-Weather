@@ -38,7 +38,7 @@ function IntroDisplay() {
   );
   //#endregion
 
-  console.log(matchPlace(weather))
+  console.log(matchedPlace)
 
   // Render loading, error, or weather content
   const renderContent = () => {
