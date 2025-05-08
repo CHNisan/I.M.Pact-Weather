@@ -1,4 +1,5 @@
 import React from 'react';
+import {useState, useEffect} from "react";
 import useLocation from '../hooks/useLocation';
 import useWeather from '../hooks/useWeather';
 import {matchPlace} from '../services/matchingService'
@@ -20,6 +21,12 @@ function IntroDisplay() {
     weatherError,
     fetchWeather
   } = useWeather(location?.latitude, location?.longitude);
+
+  const [matchedPlace, setMatchedPlace] = useState()
+
+  useEffect(() => {
+    setMatchedPlace(matchPlace(weather))
+  }, [weather])
   //#endregion
 
   const loading = isLocationLoading || isWeatherLoading;
@@ -31,7 +38,7 @@ function IntroDisplay() {
   );
   //#endregion
 
-  console.log(matchPlace({weatherData: {main: {temp: 15}, weather: [{id: 300}]}}))
+  console.log(matchPlace(weather))
 
   // Render loading, error, or weather content
   const renderContent = () => {
