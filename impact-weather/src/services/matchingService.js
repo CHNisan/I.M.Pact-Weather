@@ -29,11 +29,22 @@ export function matchPlace(weatherData) {
         }
     
         // No match found
-        return placeData[placeData.length - 1]; // Returning default place data
+        const defaultPlace = placeData[placeData.length - 1];
+        return { // Returning default place data
+            name: defaultPlace.name,
+            character: defaultPlace.characters[0],
+            info: defaultPlace.info
+        }; 
     }
 
     catch(error){
         console.error("Issue reading weather or place data:", error)
-        return placeData[placeData.length - 1];
+        
+        const defaultPlace = placeData[placeData.length - 1];
+        return { // Returning default place data
+            name: defaultPlace.name,
+            character: defaultPlace.characters[0],
+            info: defaultPlace.info
+        }; 
     }
 }
