@@ -43,6 +43,10 @@ function IntroDisplay() {
   const formatTemp = (temp) => (
     temp === undefined || temp === null ? 'N/A' : `${Math.round(temp)}°C`
   );
+
+  function createPositionStyle(vertical, horizontal, isTopLeftAnchor = true) {
+    return isTopLeftAnchor ? { "--top": `${vertical}%`, "--left": `${horizontal}%` } : { "--bottom": `${vertical}%`, "--right": `${horizontal}%` }
+  };
   //#endregion
 
 
@@ -91,14 +95,14 @@ function IntroDisplay() {
 
     return(
       <div>
-        <p className="intro-text">{matchedPlace.character.dialogue.greeting}</p>
-        <p className="intro-text">{`${formatTemp(weather?.weatherData?.main?.temp)} ${matchedPlace.character.dialogue.weather}`}</p>
+        <p className="intro-text" style={createPositionStyle(matchedPlace.character.image.dialogueLocations.greeting.top, matchedPlace.character.image.dialogueLocations.greeting.left)}>{matchedPlace.character.dialogue.greeting}</p>
+        <p className="intro-text" style={createPositionStyle(matchedPlace.character.image.dialogueLocations.weather.top, matchedPlace.character.image.dialogueLocations.weather.left)}>{`${formatTemp(weather?.weatherData?.main?.temp)} ${matchedPlace.character.dialogue.weather}`}</p>
         <div className="intro-title-container">
           <p className="intro-subtitle top-subtitle">{matchedPlace.character.dialogue.titleBegining}</p>
           <h2 className='intro-title'>{matchedPlace.name}</h2>
           <p className="intro-subtitle bottom-subtitle">{matchedPlace.character.dialogue.titleEnd}</p>
         </div>
-        <p className="intro-text">"{matchedPlace.character.quotes}"</p>
+        <p className="intro-text" style={createPositionStyle(matchedPlace.character.image.dialogueLocations.quote.bottom, matchedPlace.character.image.dialogueLocations.quote.right, false)}>"{matchedPlace.character.quotes}"</p>
         <p className="nav-text">show more</p>
       </div>
     );

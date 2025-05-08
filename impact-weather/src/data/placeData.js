@@ -28,9 +28,9 @@ const placeData = [
                     description: "Outside of the Hazbin Hotel, looking over the Pride Ring",
                     color: "#621a27",
                     dialogueLocations: { // Locations the text should be placed on the screen for the main section
-                        greeting: {top: 0, left: 0}, // Percent from the corners of the screen the text should be placed
-                        weather: {top: 0, left: 0},
-                        quote: {bottom: 0, right: 0}
+                        greeting: {top: 20, left: 20}, // Percent from the corners of the screen the text should be placed
+                        weather: {top: 30, left: 30},
+                        quote: {bottom: 20, right: 30}
                     }
                 }
             },
