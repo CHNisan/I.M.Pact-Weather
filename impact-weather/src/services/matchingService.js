@@ -29,11 +29,11 @@ export function matchPlace(weatherData) {
         }
     
         // No match found
-        return null;
+        return placeData[placeData.length - 1]; // Returning default place data
     }
 
     catch(error){
         console.error("Issue reading weather or place data:", error)
-        return null;
+        return placeData[placeData.length - 1];
     }
 }
