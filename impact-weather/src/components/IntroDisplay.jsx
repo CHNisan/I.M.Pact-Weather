@@ -101,7 +101,13 @@ function IntroDisplay() {
     }
 
     return(
-      <div>
+      <>
+        <img className="bg-img" 
+          src={matchedPlace?.character?.image?.src} 
+          alt={matchedPlace?.character?.image?.description} 
+          style={{ "backgroundColor": matchedPlace?.character?.image?.color}}/>
+
+      <div className="intro-text-container">
         <p className="intro-text" style={createPositionStyle(currCharacter?.image?.dialogueLocations?.greeting)}>
           {currCharacter?.dialogue?.greeting}
         </p>
@@ -122,6 +128,7 @@ function IntroDisplay() {
 
         <p className="nav-text">show more</p>
       </div>
+      </>
     );
   };
 
