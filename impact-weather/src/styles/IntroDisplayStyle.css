@@ -1,14 +1,28 @@
-/* region: General */
-.bg-img{
-    position: fixed; /* Make it fixed to the viewport */
-    width: 100%;
-    height: 100vh;
-    object-fit: cover;
-    z-index: -1; /* Push it behind all content */
+/* #region: Animations */
+    @keyframes fade-in {
+        0%{
+            opacity: 0;
+        }    
+        100%{
+            opacity: 100%;
+        }
+    }
 
-    margin: 0;
-}
+    @keyframes slide-in-left{
+        0%{
+            transform: translateX(-60%);
+            scale: 0.9;
+            opacity: 0;
+        }
+        100%{
+            scale: 1;
+            opacity: 1;
+        }
+    }
+/* #endregion */
 
+
+/* #region: General */
 .intro-container{
     display: flex;
     flex-direction: column;
@@ -17,11 +31,36 @@
     width: 100vw;
     height: 100vh;
 }
-/* endregion */
+/* #endregion */
 
 
+/* #region: Background image */
+.bg-img{
+    position: fixed; 
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    z-index: -1;
+    opacity: 0;
 
-/* region: Intro text */
+    margin: 0;
+
+    animation: fade-in 1s linear 0s 1 forwards;
+}
+/* #endregion */
+
+
+/* #region: Intro text */
+.intro-title{
+    opacity: 0;
+    animation: slide-in-left 1s ease-in-out 0.25s 1 forwards;
+}
+
+.intro-subtitle, .intro-text{
+    opacity: 0;
+    animation: slide-in-left 1s ease-in-out 0s 1 forwards;
+}
+
 .intro-title-container{
     position: absolute;
     top: 50%;
@@ -99,4 +138,9 @@
     .intro-text:nth-of-type(2) { left: 50%;}
     .intro-text:nth-of-type(3) { right: 50%}
 }
-/* endregion */
+/* #endregion */
+
+.nav-text{
+    opacity: 0;
+    animation: slide-in-left 0.5s ease-in-out 1s 1 forwards;
+}

@@ -69,7 +69,6 @@ function IntroDisplay() {
     if (loading && !weather) {
       return (
         <div className="intro-container">
-          <h2>Loading...</h2>
         </div>
       );
     }
