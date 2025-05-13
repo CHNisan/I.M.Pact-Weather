@@ -5,7 +5,12 @@ function App() {
   return (
     <>
       {/* <IntroDisplay/> */}
-        <WeatherCard/>
+        <WeatherCard 
+          value={"20°"}
+          title={"Temperature"}
+          extra={"Feels Like: 19°"}
+          dropdown={"Range: 18°-21°"}
+        />
     </>
   )
 }
