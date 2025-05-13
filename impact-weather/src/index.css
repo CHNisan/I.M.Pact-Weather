@@ -23,6 +23,8 @@ html{
 body{
     color: white;
     background-color: black;
+
+    background-image: url("../../public/images/Pride Ring/Pride Ring extreme wide shot.png");
 }
 
 @media (prefers-reduced-motion: no-preference){
