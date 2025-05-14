@@ -1,11 +1,11 @@
 /* #region Containers */
-.container{
+.weather-card-container{
     color: black;
 
     background: radial-gradient(circle,rgba(255, 255, 255, 0.83) 0%, rgba(239, 239, 239, 0.85) 100%);
 }
 
-.container, .main {
+.weather-card-container, .weather-card-main {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -15,17 +15,17 @@
     border-radius: 18px;
 }
 
-.main {
+.weather-card-main {
     position: relative;
     z-index: 0;
     overflow: hidden; 
 }
 
-.container:hover .main{
+.weather-card-container:hover .weather-card-main{
     box-shadow: 0px 10px 20px #00000099;
 }
 
-.main::before {
+.weather-card-main::before {
     content: '';
     position: absolute;
     inset: 0;
@@ -35,18 +35,18 @@
     z-index: -1;
 }
 
-.container:hover .main::before {
+.weather-card-container:hover .weather-card-main::before {
     opacity: 1;
 }
 
-.dropdown{
+.weather-card-dropdown{
     max-height: 0;
     opacity: 0;
 
     transition: 200ms;
 }
 
-.container:hover .dropdown{
+.weather-card-container:hover .weather-card-dropdown{
     max-height: 3.5rem;
     opacity: 1;
 }
@@ -54,7 +54,7 @@
 
 
 /* #region Text */
-.value{
+.weather-card-value{
     margin-top: 2rem;
 
     font-size: 4.33rem;
@@ -62,21 +62,21 @@
     letter-spacing: 0.2rem;
 }
 
-.title{
+.weather-card-title{
     margin-top: 1rem;
 
     font-size: 1.6rem;
     font-weight: 300;
 }
 
-.extra{
+.weather-card-extra{
     margin: 0.5rem 0 1rem 0;
 
     font-size: 1rem;
     font-weight: 200;
 }
 
-.dropdown-text{
+.weather-card-dropdown-text{
     margin: 0.75rem;
 
     font-size: 1rem;
@@ -87,76 +87,76 @@
 
 /* #region Media queries */
 @media (max-width: 1024px){
-    .container, .main {
+    .weather-card-container, .weather-card-main {
 
         width: 10rem;
     }
 
-    .value{
+    .weather-card-value{
         margin-top: 1.75rem;
 
         font-size: 4rem;
     }
 
-    .title{
+    .weather-card-title{
         margin-top: 1rem;
 
         font-size: 1.3rem;
     }
 
-    .extra, .dropdown-text{
+    .weather-card-extra, .weather-card-dropdown-text{
         font-size: 0.9rem;
     }
 }
 
 @media (max-width: 768px){
-    .container, .main {
+    .weather-card-container, .weather-card-main {
 
         width: 9rem;
     }
 
-    .value{
+    .weather-card-value{
         margin-top: 1.5rem;
 
         font-size: 3.5rem;
         letter-spacing: 0.1rem;
     }
 
-    .title{
+    .weather-card-title{
         margin-top: 0.75rem;
 
         font-size: 1.2rem;
     }
 
-    .extra, .dropdown-text{
+    .weather-card-extra, .weather-card-dropdown-text{
         font-weight: 250;
     }
 
-    .container:hover .dropdown{
+    .weather-card-container:hover .weather-card-dropdown{
         max-height: 2.5rem;
     }
 }
 
 @media (max-width: 425px){
-    .container, .main {
+    .weather-card-container, .weather-card-main {
 
         width: 8.5rem;
     }
 
-    .value{
+    .weather-card-value{
         margin-top: 1.25rem;
 
         font-size: 3.25rem;
     }
 
-    .title{
+    .weather-card-title{
         margin-top: 0.5rem;
 
         font-size: 1.1rem;
         font-weight: 350;
     }
 
-    .extra, .dropdown-text{
+    .weather-card-extra, .weather-card-dropdown-text{
         font-weight: 300;
     }
 }
