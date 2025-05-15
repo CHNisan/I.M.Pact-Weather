@@ -1,18 +1,9 @@
+/* #region Main */
 .info-card-container{
     position: relative;
 
     width: 40rem;
 }
-
-.info-card-container:hover .info-card-text-container{
-    transform: scale(1.025) translate(-48.75%, -48.75%);
-    filter: drop-shadow(0px 0px 4px #000000);
-}
-
-.info-card-container:hover .info-card-bg-img{
-    filter: brightness(30%);
-}
-
 
 .info-card-bg-img{
     max-width: 100%;
@@ -27,6 +18,13 @@
     transition: 300ms;
 }
 
+.info-card-container:hover .info-card-bg-img{
+    filter: brightness(30%);
+}
+/* #endregion */
+
+
+/* #region Text */
 .info-card-text-container{
     position: absolute;
     top: 50%;
@@ -40,6 +38,11 @@
     width: 90%;
 
     transition: 300ms;
+}
+
+.info-card-container:hover .info-card-text-container{
+    transform: scale(1.025) translate(-48.75%, -48.75%);
+    filter: drop-shadow(0px 0px 4px #000000);
 }
 
 .info-card-info, .info-card-quote{
@@ -57,7 +60,10 @@
 
     font-size: 1.375rem;
 }
+/* #endregion */
 
+
+/* #region Scroll */
 .info-card-scroll-button{
     position: absolute;
     top: 50%;
@@ -85,7 +91,7 @@
 
 .info-card-scroll-button:hover{
     transform: scale(1.3);
-    background-color:rgb(170, 170, 170);
+    background-color:#aaaaaa;
     filter: drop-shadow(0px 0px 5px #FFFFFF44);
 }
 
@@ -102,3 +108,62 @@
     transform: scale(1.0125) translate(-49.375%, -49.375%);
     filter: brightness(95%);
 }
+/* #endregion */
+
+
+/* #region Indicator */
+.info-card-img-indicator-container{
+    position: absolute;
+    left: 50%;
+    bottom: 10px;
+    transform: translate(-50%, -50%);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+}
+
+.info-card-img-indicator{
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    border: 4px solid #aaaaaa;
+
+    background-color: transparent;
+
+    cursor: pointer;
+
+    transition: 200ms;
+}
+
+.fill{
+    background-color: #aaaaaa;
+}
+/* #endregion */
+
+
+/* #region Share */
+.info-card-share-button{
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+
+    border: none;
+    background-color: transparent;
+
+    cursor: pointer;
+
+    transition: 200ms;
+}
+
+.info-card-share-svg{
+    width: 50px;
+    height: auto
+}
+
+.info-card-share-button:hover{
+    transform: scale(1.1);
+}
+/* #endregion */
