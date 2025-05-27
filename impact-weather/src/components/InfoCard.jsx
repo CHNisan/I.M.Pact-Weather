@@ -1,42 +1,42 @@
 import '../styles/InfoCardStyle.css';
 
-function InfoCard({info, images}) {
+function InfoCard({info, quips, images}) {
     return(
         <section className="info-card-container">
             <div className="info-card-slider-wrapper">
                 <div className="info-card-slider">
                     <div id="slide-0" className="info-card-slide">
-                        <img className="info-card-bg-img" src="../../public/images/Pride Ring/Pride Ring extreme wide shot.png" alt="Extreme wide shot of the Pride Ring, looking down"/>
+                        <img className="info-card-bg-img" src={images[0].src} alt={images[0].alt}/>
                         <div className="info-card-text-container">
                             <p className="info-card-info">
-                                {"The Pride Ring is one of the seven Rings of Hell and is the first and topmost ring within Hell.\n\nSinners are confined to and can only exist in this ring, however, like the other rings in Hell, the Pride Ring is accessible and traversable by Hellborn species."}
+                                {info[0]}
                             </p>
                             <p className="info-card-quip">
-                                {'“Keep your hell hounds hydrate out there!\n(that means you Loona)”'}
+                                {quips[0]}
                             </p>
                         </div>
                     </div>
 
                     <div id="slide-1" className="info-card-slide">
-                        <img className="info-card-bg-img" src="../../public/images/Pride Ring/Pride Ring extreme wide shot.png" alt="Extreme wide shot of the Pride Ring, looking down"/>
+                        <img className="info-card-bg-img" src={images[1].src} alt={images[1].alt}/>
                         <div className="info-card-text-container">
                             <p className="info-card-info">
-                                {"The Pride Ring is one of the seven Rings of Hell and is the first and topmost ring within Hell.\n\nSinners are confined to and can only exist in this ring, however, like the other rings in Hell, the Pride Ring is accessible and traversable by Hellborn species."}
+                                {info[1]}
                             </p>
                             <p className="info-card-quip">
-                                {'“Keep your hell hounds hydrate out there!\n(that means you Loona)”'}
+                                {quips[1]}
                             </p>
                         </div>
                     </div>
 
                     <div id="slide-2" className="info-card-slide">
-                        <img className="info-card-bg-img" src="../../public/images/Pride Ring/Pride Ring extreme wide shot.png" alt="Extreme wide shot of the Pride Ring, looking down"/>
+                        <img className="info-card-bg-img" src={images[2].src} alt={images[2].alt}/>
                         <div className="info-card-text-container">
                             <p className="info-card-info">
-                                {"The Pride Ring is one of the seven Rings of Hell and is the first and topmost ring within Hell.\n\nSinners are confined to and can only exist in this ring, however, like the other rings in Hell, the Pride Ring is accessible and traversable by Hellborn species."}
+                                {info[2]}
                             </p>
                             <p className="info-card-quip">
-                                {'“Keep your hell hounds hydrate out there!\n(that means you Loona)”'}
+                                {quips[2]}
                             </p>
                         </div>
                     </div>

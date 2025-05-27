@@ -120,7 +120,25 @@ const placeData = [
             }
         ],
 
-        info:[]
+        info:["", "", ""],
+        quips:["", "", ""],
+        images:[
+            {
+                src: null,
+                description: null,
+                color: "#000000",
+            },
+            {
+                src: null,
+                description: null,
+                color: "#000000",
+            },
+            {
+                src: null,
+                description: null,
+                color: "#000000",
+            }
+        ]
     }
 ]
 
