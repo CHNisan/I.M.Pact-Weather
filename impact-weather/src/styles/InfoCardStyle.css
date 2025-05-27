@@ -107,7 +107,7 @@
     transition: 300ms;
 }
 
-.info-card-info, .info-card-quote{
+.info-card-info, .info-card-quip{
     text-align: center;
     white-space: pre-line;
 }
@@ -116,7 +116,7 @@
     font-size: 1.25rem;
 }
 
-.info-card-quote{
+.info-card-quip{
     margin-top: 2rem;
     font-size: 1.375rem;
 }
@@ -174,7 +174,7 @@
         font-size: 1.1rem;
     }
     
-    .info-card-quote {
+    .info-card-quip {
         font-size: 1.2rem;
     }
 
@@ -207,7 +207,7 @@
         font-size: 1rem;
     }
     
-    .info-card-quote {
+    .info-card-quip {
         font-size: 1.1rem;
     }
 
@@ -234,7 +234,7 @@
         font-size: 0.9rem;
     }
     
-    .info-card-quote {
+    .info-card-quip {
         font-size: 1rem;
     }
 

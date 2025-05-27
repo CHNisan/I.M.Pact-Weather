@@ -1,6 +1,6 @@
 import '../styles/InfoCardStyle.css';
 
-function InfoCard() {
+function InfoCard({info, images}) {
     return(
         <section className="info-card-container">
             <div className="info-card-slider-wrapper">
@@ -11,7 +11,7 @@ function InfoCard() {
                             <p className="info-card-info">
                                 {"The Pride Ring is one of the seven Rings of Hell and is the first and topmost ring within Hell.\n\nSinners are confined to and can only exist in this ring, however, like the other rings in Hell, the Pride Ring is accessible and traversable by Hellborn species."}
                             </p>
-                            <p className="info-card-quote">
+                            <p className="info-card-quip">
                                 {'“Keep your hell hounds hydrate out there!\n(that means you Loona)”'}
                             </p>
                         </div>
@@ -23,7 +23,7 @@ function InfoCard() {
                             <p className="info-card-info">
                                 {"The Pride Ring is one of the seven Rings of Hell and is the first and topmost ring within Hell.\n\nSinners are confined to and can only exist in this ring, however, like the other rings in Hell, the Pride Ring is accessible and traversable by Hellborn species."}
                             </p>
-                            <p className="info-card-quote">
+                            <p className="info-card-quip">
                                 {'“Keep your hell hounds hydrate out there!\n(that means you Loona)”'}
                             </p>
                         </div>
@@ -35,7 +35,7 @@ function InfoCard() {
                             <p className="info-card-info">
                                 {"The Pride Ring is one of the seven Rings of Hell and is the first and topmost ring within Hell.\n\nSinners are confined to and can only exist in this ring, however, like the other rings in Hell, the Pride Ring is accessible and traversable by Hellborn species."}
                             </p>
-                            <p className="info-card-quote">
+                            <p className="info-card-quip">
                                 {'“Keep your hell hounds hydrate out there!\n(that means you Loona)”'}
                             </p>
                         </div>

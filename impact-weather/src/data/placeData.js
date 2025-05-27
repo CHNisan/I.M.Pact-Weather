@@ -63,9 +63,14 @@ const placeData = [
         
 
         info:[
-            "The Pride Ring is one of the seven Rings of Hell and is the first and topmost ring within Hell.\nSinners are confined to and can only exist in this ring, however, like the other rings in Hell, the Pride Ring is accessible and traversable by Hellborn species.",
-            "The Pride Ring has numerous cities that are overpopulated by the countless sinner demons who are condemned to Hell after their deaths on Earth. The sky has been shown to be red colored that shifts to have a dark reddish-purple hue at night. Also from this ring, the pentagram moon and Heaven are visible in the sky. Its full moon is a glowing orb with light swirling around it.",
-            "This ring experiences yearly attacks by the Exorcists in order to quell the overpopulation crisis and prevent an uprising from Hell's Sinner population. As per Lucifer's pardon from Heaven, the Hellborn of the Pride Ring, and by extension the rest of Hell, are to be spared from the Extermination."
+            "The Pride Ring is one of the seven Rings of Hell and is the first and topmost ring within Hell.\n\nSinners are confined to and can only exist in this ring, however, like the other rings in Hell, the Pride Ring is accessible and traversable by Hellborn species.",
+            "The Pride Ring is one of the seven Rings of Hell and is the first and topmost ring within Hell.\n\nSinners are confined to and can only exist in this ring, however, like the other rings in Hell, the Pride Ring is accessible and traversable by Hellborn species.",
+            "The Pride Ring is one of the seven Rings of Hell and is the first and topmost ring within Hell.\n\nSinners are confined to and can only exist in this ring, however, like the other rings in Hell, the Pride Ring is accessible and traversable by Hellborn species."
+        ],
+        quips:[
+            '“Keep your hell hounds hydrate out there!\n(that means you Loona)”',
+            '“Keep your hell hounds hydrate out there!\n(that means you Loona)”',
+            '“Keep your hell hounds hydrate out there!\n(that means you Loona)”'
         ],
         images:[
             {
