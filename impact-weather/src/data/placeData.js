@@ -25,7 +25,7 @@ const placeData = [
                 quotes: "This face was made for radio",
                 image: {
                     src: "../../public/images/Pride Ring/Pride Ring extreme wide shot.png",
-                    description: "Outside of the Hazbin Hotel, looking over the Pride Ring",
+                    description: "Extreme wide shot of the Pride Ring, looking down",
                     color: "#621a27",
                     dialogueLocations: { // Locations the text should be placed on the screen for the main section
                         greeting: {top: 20, left: 20}, // Percent from the corners of the screen the text should be placed
@@ -48,8 +48,8 @@ const placeData = [
                 },
                 quotes: "Popsicles, ya sicko!",
                 image: {
-                    src: "../../public/images/Pride Ring/Pride Ring extreme wide shot.png",
-                    description: "Extreme wide shot of the Pride Ring, looking down",
+                    src: "../../public/images/Pride Ring/Pride Ring clock tower.png",
+                    description: "Looking over the city rooftops to the clock tower",
                     color: "#621a27",
                     dialogueLocations: { // Locations the text should be placed on the screen for the main section
                         greeting: {top: 0, left: 0}, // Percent from the corners of the screen the text should be placed
@@ -66,6 +66,23 @@ const placeData = [
             "The Pride Ring is one of the seven Rings of Hell and is the first and topmost ring within Hell.\nSinners are confined to and can only exist in this ring, however, like the other rings in Hell, the Pride Ring is accessible and traversable by Hellborn species.",
             "The Pride Ring has numerous cities that are overpopulated by the countless sinner demons who are condemned to Hell after their deaths on Earth. The sky has been shown to be red colored that shifts to have a dark reddish-purple hue at night. Also from this ring, the pentagram moon and Heaven are visible in the sky. Its full moon is a glowing orb with light swirling around it.",
             "This ring experiences yearly attacks by the Exorcists in order to quell the overpopulation crisis and prevent an uprising from Hell's Sinner population. As per Lucifer's pardon from Heaven, the Hellborn of the Pride Ring, and by extension the rest of Hell, are to be spared from the Extermination."
+        ],
+        images:[
+            {
+                src: "../../public/images/Pride Ring/Pride Ring extreme wide shot.png",
+                description: "Extreme wide shot of the Pride Ring, looking down",
+                color: "#621a27",
+            },
+            {
+                src: "../../public/images/Pride Ring/Pride Ring clock tower.png",
+                description: "Looking over the city rooftops to the clock tower",
+                color: "#7f2739",
+            },
+            {
+                src: "../../public/images/Pride Ring/Pride Ring v tower.png",
+                description: "Outside the bottom of the V tower",
+                color: "#843b67",
+            }
         ]
     },
     {
