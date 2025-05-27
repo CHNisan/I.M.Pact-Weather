@@ -12,9 +12,9 @@
     position: relative;
     border-radius: 15px;
 
-    touch-action: pan-x;
-    
     box-shadow: 0 0 3rem 1rem #00000055;
+
+    touch-action: pan-x;
 }
 
 .info-card-slider{
