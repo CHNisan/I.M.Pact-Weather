@@ -1,3 +1,14 @@
 .info{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
     height: 100vh;
+}
+
+.weather-cards{
+    display: grid;
+    grid-template-columns: repeat(2, 11rem);
+    grid-template-rows: repeat(2, 15rem);
+    gap: 5rem; 
+    align-items: start;
 }
