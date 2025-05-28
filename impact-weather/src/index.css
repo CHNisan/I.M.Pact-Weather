@@ -1,4 +1,20 @@
 /*#region General*/
+:root {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+        
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    /* #region Varialbes */
+    
+
+    --share-popup-color: black;
+    --share-popup-background-color: white;
+    /* #endregion */
+}
+
 html{
     box-sizing: border-box;
 }
@@ -9,16 +25,6 @@ html{
     padding: 0;
     margin: 0;
 }
-
-
-:root {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-        
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    }
 
 body{
     color: white;
