@@ -128,20 +128,10 @@
 /* #region Share */
 .info-card-share-button{
     position: absolute;
-    bottom: 20px;
-    right: 20px;
-
-    border: none;
-    background-color: transparent;
-
-    cursor: pointer;
+    bottom: 5px;
+    right: 5px;
 
     transition: 200ms;
-}
-
-.info-card-share-svg{
-    width: 50px;
-    height: auto
 }
 /* #endregion */
 
@@ -189,10 +179,6 @@
         height: 20px;
         border-width: 3px;
     }
-    
-    .info-card-share-svg {
-        width: 40px;
-    }
 
     .info-card-slider{
         -webkit-user-select: none;
@@ -222,8 +208,8 @@
     }
     
     .info-card-share-button {
-        bottom: 10px;
-        right: 10px;
+        bottom: 0px;
+        right: 0px;
     }
 
     .info-card-slider{
@@ -242,10 +228,6 @@
 
     .info-card-slider{
         aspect-ratio: 8/10;   
-    }
-
-    .info-card-share-svg {
-        width: 30px;
     }
 }
 /* #endregion */
