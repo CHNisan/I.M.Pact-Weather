@@ -4,6 +4,12 @@
     box-shadow: 0 0 3rem 1rem #00000099;
 
     background: radial-gradient(circle, var(--weather-card-gradient-first-color) 0%, var(--weather-card-gradient-second-color) 100%);
+
+    transition: 200ms;
+}
+
+.weather-card-container:hover{
+    transform: scale(1.025);
 }
 
 .weather-card-container, .weather-card-main {
