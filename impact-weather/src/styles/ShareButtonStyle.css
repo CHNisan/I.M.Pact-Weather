@@ -1,4 +1,4 @@
-.info-card-share-button{
+.share-button{
     position: absolute;
     bottom: 20px;
     right: 20px;
@@ -11,21 +11,21 @@
     transition: 200ms;
 }
 
-.info-card-share-svg{
+.share-svg{
     width: 50px;
     height: auto
 }
 
 /* #region Responsive Design */
 @media screen and (max-width: 768px) {
-    .info-card-share-svg {
+    .share-svg {
         width: 40px;
     }
 }
 
 
 @media screen and (max-width: 375px) {
-    .info-card-share-svg {
+    .share-svg {
         width: 30px;
     }
 }
