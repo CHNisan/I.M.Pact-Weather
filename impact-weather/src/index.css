@@ -8,6 +8,9 @@
     -moz-osx-font-smoothing: grayscale;
 
     /* #region Varialbes */
+    --main-text-color: white;
+    --nav-text-color: #F0F0F0;
+
     --weather-card-text-color: black;
     --weather-card-gradient-first-color: rgba(255, 255, 255, 0.83);
     --weather-card-gradient-second-color: rgba(239, 239, 239, 0.85);
@@ -31,7 +34,7 @@ html{
 }
 
 body{
-    color: white;
+    color: var(--main-text-color);
     background-color: black;
 }
 
@@ -65,7 +68,7 @@ h2{
     left: 50%;
     transform: translate(-50%, -50%);
 
-    color: #F0F0F0;
+    color: var(--nav-text-color);
 
     font-size: 1.5rem;
     text-align: center;
