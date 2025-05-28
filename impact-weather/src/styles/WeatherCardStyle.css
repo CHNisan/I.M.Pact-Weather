@@ -1,6 +1,7 @@
 /* #region Containers */
 .weather-card-container{
     color: var(--weather-card-text-color);
+    box-shadow: 0 0 3rem 1rem #00000099;
 
     background: radial-gradient(circle, var(--weather-card-gradient-first-color) 0%, var(--weather-card-gradient-second-color) 100%);
 }
@@ -22,7 +23,7 @@
 }
 
 .weather-card-container:hover .weather-card-main{
-    box-shadow: 0px 10px 20px #00000099;
+    box-shadow: 0 0 3rem 0.5rem #00000099;
 }
 
 .weather-card-main::before {
