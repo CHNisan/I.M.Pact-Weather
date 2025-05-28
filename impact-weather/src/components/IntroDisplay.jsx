@@ -68,8 +68,7 @@ function IntroDisplay() {
     // Loading
     if (loading && !weather) {
       return (
-        <div className="intro-container">
-        </div>
+        <></>
       );
     }
 
@@ -132,7 +131,7 @@ function IntroDisplay() {
   };
 
   return (
-    <div className="p-6 max-w-md mx-auto bg-white rounded-xl shadow-md">
+    <div className="intro-container">
       {renderContent()}
     </div>
   );
