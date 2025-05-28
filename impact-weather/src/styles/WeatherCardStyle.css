@@ -1,6 +1,6 @@
 /* #region Containers */
 .weather-card-container{
-    color: black;
+    color: var(--weather-card-text-color);
 
     background: radial-gradient(circle, var(--weather-card-gradient-first-color) 0%, var(--weather-card-gradient-second-color) 100%);
 }
