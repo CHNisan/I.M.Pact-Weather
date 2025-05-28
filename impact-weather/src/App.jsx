@@ -1,11 +1,18 @@
 import IntroDisplay from "./components/IntroDisplay.jsx"
+import WeatherCard from "./components/WeatherCard.jsx"
 import InfoCard from "./components/InfoCard.jsx"
 import placeData from "./data/placeData.js"
 
 function App() {
   return (
     <>
-      {/* <IntroDisplay/> */}
+      <IntroDisplay/>
+      <WeatherCard 
+          value={"20°"}
+          title={"Temperature"}
+          extra={"Feels Like: 19°"}
+          dropdown={"Range: 18°-21°"}
+        />
       <InfoCard 
         info={placeData[0].info}
         quips={placeData[0].quips}

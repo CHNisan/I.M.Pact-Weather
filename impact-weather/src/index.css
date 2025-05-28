@@ -8,6 +8,9 @@
     -moz-osx-font-smoothing: grayscale;
 
     /* #region Varialbes */
+    --weather-card-gradient-first-color: rgba(255, 255, 255, 0.83);
+    --weather-card-gradient-second-color: rgba(239, 239, 239, 0.85);
+
     --info-card-color: #aaaaaa;
 
     --share-popup-color: black;
@@ -29,8 +32,6 @@ html{
 body{
     color: white;
     background-color: black;
-
-    background-image: url("../../public/images/Pride Ring/Pride Ring extreme wide shot.png");
 }
 
 @media (prefers-reduced-motion: no-preference){

@@ -2,7 +2,7 @@
 .weather-card-container{
     color: black;
 
-    background: radial-gradient(circle,rgba(255, 255, 255, 0.83) 0%, rgba(239, 239, 239, 0.85) 100%);
+    background: radial-gradient(circle, var(--weather-card-gradient-first-color) 0%, var(--weather-card-gradient-second-color) 100%);
 }
 
 .weather-card-container, .weather-card-main {
@@ -29,7 +29,7 @@
     content: '';
     position: absolute;
     inset: 0;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.83) 0%, rgba(239, 239, 239, 0.85) 100%);
+    background: radial-gradient(circle, var(--weather-card-gradient-first-color) 0%, var(--weather-card-gradient-second-color) 100%);
     opacity: 0;
     transition: 200ms;
     z-index: -1;
