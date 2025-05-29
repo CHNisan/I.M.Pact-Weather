@@ -5,7 +5,7 @@ import useWeather from '../hooks/useWeather';
 import {matchPlace} from '../services/matchingService'
 import '../styles/IntroDisplayStyle.css';
 
-function IntroDisplay() {
+function IntroDisplay(props) {
   //#region State
     const [matchedPlace, setMatchedPlace] = useState()
     const [currCharacter, setCurrCharacter] = useState()
@@ -54,6 +54,10 @@ function IntroDisplay() {
       { "--top": `${dialogueLocations?.top}%`, "--left": `${dialogueLocations?.left}%` } : 
       { "--bottom": `${dialogueLocations?.bottom}%`, "--right": `${dialogueLocations?.right}%` }
   };
+
+  function showMoreOnClick(){
+    props.infoSection.current.scrollIntoView();
+  }
   //#endregion
 
 
@@ -125,7 +129,7 @@ function IntroDisplay() {
         </p>
 
         <div className="show-more-container">
-          <p className="nav-text show-more">show more</p>
+          <button className="nav-text show-more" onClick={showMoreOnClick}>show more</button>
         </div>
       </div>
       </>

@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import IntroDisplay from "./components/IntroDisplay.jsx";
 import WeatherCard from "./components/WeatherCard.jsx";
 import InfoCard from "./components/InfoCard.jsx";
@@ -5,13 +6,17 @@ import placeData from "./data/placeData.js";
 import "./styles/AppStyle.css";
 
 function App() {
+  const infoSection = useRef(null);
+
   return (
     <>
       <section className="intro-display">
-        <IntroDisplay/>
+        <IntroDisplay
+          infoSection={infoSection}
+        />
       </section>
 
-      <section className="info">
+      <section className="info" ref={infoSection}>
         <section className="weather-cards">
           <WeatherCard 
             value={"20°"}
