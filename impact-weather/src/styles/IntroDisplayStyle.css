@@ -143,12 +143,21 @@
 }
 /* #endregion */
 
+
+/* #region Show more */
 .show-more{
+    border: none;
+
+    background: none;
     opacity: 0;
+
+    cursor: pointer;
+
     animation: slide-in-left 0.5s ease-in-out 1s 1 forwards;
 }
 
 .show-more-container{
     animation: fade-out linear forwards;
-    animation-timeline: view(-10% 50%);
+    animation-timeline: view(0% 50%);
 }
+/* #endregion */
