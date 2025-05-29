@@ -51,6 +51,7 @@ function App() {
   const error = locationError || weatherError;
 
 
+
   // #region Rendering
   if (loading || !weather){
     return <></>;
@@ -90,6 +91,7 @@ function App() {
         />
       </section>
  
+
       <section className="info" ref={infoSection}>
         <section className="weather-cards">
           <WeatherCard 
@@ -117,10 +119,11 @@ function App() {
             dropdown={"Range: 18°-21°"}
           />
         </section>
+
         <InfoCard 
-          info={placeData[0].info}
-          quips={placeData[0].quips}
-          images={placeData[0].images}
+          info={matchedPlace.info}
+          quips={matchedPlace.quips}
+          images={matchedPlace.images}
         />
       </section>
     </>

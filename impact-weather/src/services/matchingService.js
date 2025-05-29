@@ -22,7 +22,9 @@ export function matchPlace(weatherData) {
                     return { // Returning default place data
                         name: place.name,
                         character: character,
-                        info: place.info
+                        info: place.info,
+                        quips: place.quips,
+                        images: place.images
                     }; 
                 }
             }
