@@ -158,6 +158,10 @@
 }
 
 @media screen and (max-width: 768px) {
+    .info-card-container{
+        padding: 0 0.75rem;
+    }
+
     .info-card-info {
         font-size: 1.1rem;
     }
