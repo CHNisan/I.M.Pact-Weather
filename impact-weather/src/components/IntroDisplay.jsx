@@ -124,7 +124,9 @@ function IntroDisplay() {
           "{currCharacter?.quotes}"
         </p>
 
-        <p className="nav-text">show more</p>
+        <div className="show-more-container">
+          <p className="nav-text show-more">show more</p>
+        </div>
       </div>
       </>
     );

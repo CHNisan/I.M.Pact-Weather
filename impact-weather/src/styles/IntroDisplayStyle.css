@@ -8,6 +8,10 @@
         }
     }
 
+    @keyframes fade-out {
+        to {opacity: 0; pointer-events: none;}
+    }
+
     @keyframes slide-in-left{
         0%{
             transform: translateX(-60%);
@@ -139,7 +143,12 @@
 }
 /* #endregion */
 
-.nav-text{
+.show-more{
     opacity: 0;
     animation: slide-in-left 0.5s ease-in-out 1s 1 forwards;
+}
+
+.show-more-container{
+    animation: fade-out linear forwards;
+    animation-timeline: view(-10% 50%);
 }

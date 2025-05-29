@@ -3,7 +3,7 @@ const placeData = [
         name: "Pride Ring",
 
         minTemp: 10, // Degress Celsius 
-        maxTemp: 20, // Degress Celsius
+        maxTemp: 25, // Degress Celsius
 
         characters: [
             {
