@@ -1,4 +1,3 @@
-import React from 'react';
 import {useState, useEffect} from "react";
 import useLocation from '../hooks/useLocation';
 import useWeather from '../hooks/useWeather';
@@ -6,43 +5,6 @@ import {matchPlace} from '../services/matchingService'
 import '../styles/IntroDisplayStyle.css';
 
 function IntroDisplay(props) {
-  //#region State
-    const [matchedPlace, setMatchedPlace] = useState()
-    const [currCharacter, setCurrCharacter] = useState()
-  //endregion
-
-
-  //#region Hooks
-  const {
-    location,
-    isApproximateLocation,
-    isLocationLoading,
-    locationError,
-    fetchLocation
-  } = useLocation();
-  
-  const {
-    weather,
-    isWeatherLoading,
-    weatherError,
-    fetchWeather
-  } = useWeather(location?.latitude, location?.longitude);
-
-  useEffect(() => {
-    setMatchedPlace(matchPlace(weather))
-  }, [weather])
-
-  useEffect(() => { 
-    setCurrCharacter(matchedPlace?.character)
-
-    // Setting CSS variables in the root element
-    const root = document.documentElement;
-    root.style.setProperty('--background-image', `url("${matchedPlace?.character?.image?.src}")`);
-    root.style.setProperty('--background-color', matchedPlace?.character?.image?.color);
-  }, [matchedPlace])
-  //#endregion
-
-
   //#region Help functions
   const formatTemp = (temp) => (
     temp === undefined || temp === null ? 'N/A' : `${Math.round(temp)}°C`
@@ -61,30 +23,23 @@ function IntroDisplay(props) {
   //#endregion
 
 
-  const loading = isLocationLoading || isWeatherLoading;
-  const error = locationError || weatherError;
-
-  console.log(matchedPlace)
-
-
   // Render loading, error, or weather content
   const renderContent = () => {
     // Loading
-    if (loading && !weather) {
+    if (props.loading && !props.weather) {
       return (
         <></>
       );
     }
 
     // Error
-    if (error) {
+    if (props.error) {
       return (
         <>
           <div className="text-red-500 font-medium mb-4">{error}</div>
           <div className="flex flex-col space-y-2">
             <button 
               className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
-              onClick={() => fetchLocation(false)}
             >
               Try Again
             </button>
@@ -92,7 +47,6 @@ function IntroDisplay(props) {
             {error.includes("Location access denied") && (
               <button 
                 className="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600"
-                onClick={() => fetchLocation(true)}
               >
                 Use Approximate Location
               </button>
@@ -105,27 +59,27 @@ function IntroDisplay(props) {
     return(
       <>
         <img className="bg-img" 
-          src={matchedPlace?.character?.image?.src} 
-          alt={matchedPlace?.character?.image?.description} 
-          style={{ "backgroundColor": matchedPlace?.character?.image?.color}}/>
+          src={props.matchedPlace?.character?.image?.src} 
+          alt={props.matchedPlace?.character?.image?.description} 
+          style={{ "backgroundColor": props.matchedPlace?.character?.image?.color}}/>
 
       <div className="intro-text-container">
-        <p className="intro-text" style={createPositionStyle(currCharacter?.image?.dialogueLocations?.greeting)}>
-          {currCharacter?.dialogue?.greeting}
+        <p className="intro-text" style={createPositionStyle(props.currCharacter?.image?.dialogueLocations?.greeting)}>
+          {props.currCharacter?.dialogue?.greeting}
         </p>
 
-        <p className="intro-text" style={createPositionStyle(currCharacter?.image?.dialogueLocations?.weather)}>
-          {`${formatTemp(weather?.weatherData?.main?.temp)} ${currCharacter?.dialogue?.weather}`}
+        <p className="intro-text" style={createPositionStyle(props.currCharacter?.image?.dialogueLocations?.weather)}>
+          {`${formatTemp(props.weather?.weatherData?.main?.temp)} ${props.currCharacter?.dialogue?.weather}`}
         </p>
 
         <div className="intro-title-container">
-          <p className="intro-subtitle top-subtitle">{currCharacter?.dialogue?.titleBegining}</p>
-          <h2 className='intro-title'>{matchedPlace?.name}</h2>
-          <p className="intro-subtitle bottom-subtitle">{currCharacter?.dialogue?.titleEnd}</p>
+          <p className="intro-subtitle top-subtitle">{props.currCharacter?.dialogue?.titleBegining}</p>
+          <h2 className='intro-title'>{props.matchedPlace?.name}</h2>
+          <p className="intro-subtitle bottom-subtitle">{props.currCharacter?.dialogue?.titleEnd}</p>
         </div>
 
-        <p className="intro-text" style={createPositionStyle(currCharacter?.image?.dialogueLocations?.quote, false)}>
-          "{currCharacter?.quotes}"
+        <p className="intro-text" style={createPositionStyle(props.currCharacter?.image?.dialogueLocations?.quote, false)}>
+          "{props.currCharacter?.quotes}"
         </p>
 
         <div className="show-more-container">
