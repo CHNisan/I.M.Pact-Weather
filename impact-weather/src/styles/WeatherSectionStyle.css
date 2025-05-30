@@ -1,0 +1,23 @@
+.weather-section{
+    display: grid;
+    grid-template-columns: repeat(2, 11rem);
+    grid-template-rows: repeat(2, 15rem);
+    gap: 5rem; 
+    align-items: start;
+}
+
+@media (max-width: 768px){
+    .weather-section{
+        grid-template-columns: repeat(2, 10rem);
+        grid-template-rows: repeat(2, 13rem);
+        gap: 3rem; 
+    }
+}
+
+@media (max-width: 435px){
+    .weather-section{
+        grid-template-columns: repeat(2, 8rem);
+        grid-template-rows: repeat(2, 12rem);
+        gap: 1.5rem; 
+    }
+}

@@ -1,13 +1,9 @@
-import {useState, useEffect} from "react";
-import useLocation from '../hooks/useLocation';
-import useWeather from '../hooks/useWeather';
-import {matchPlace} from '../services/matchingService'
 import '../styles/IntroDisplayStyle.css';
 
 function IntroDisplay(props) {
   //#region Help functions
-  const formatTemp = (temp) => (
-    temp === undefined || temp === null ? 'N/A' : `${Math.round(temp)}°C`
+  const formatTemp = (temp, isMetric = true) => (
+    temp === undefined || temp === null ? 'N/A' : `${Math.round(temp)}${isMetric ? "°C" : "°F"}`
   );
 
   // Create the inline style for setting the top, left, bottom and right position variables for the into-text CSS elements

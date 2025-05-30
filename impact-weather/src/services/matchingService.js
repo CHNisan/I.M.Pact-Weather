@@ -35,7 +35,9 @@ export function matchPlace(weatherData) {
         return { // Returning default place data
             name: defaultPlace.name,
             character: defaultPlace.characters[0],
-            info: defaultPlace.info
+            info: defaultPlace.info,
+            quips: defaultPlace.quips,
+            images: defaultPlace.images
         }; 
     }
 

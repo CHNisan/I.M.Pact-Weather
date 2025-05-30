@@ -4,8 +4,8 @@ import useWeather from './hooks/useWeather';
 import {matchPlace} from './services/matchingService'
 import IntroDisplay from "./components/IntroDisplay.jsx";
 import WeatherCard from "./components/WeatherCard.jsx";
+import WeatherSection from "./components/WeatherSection.jsx";
 import InfoCard from "./components/InfoCard.jsx";
-import placeData from "./data/placeData.js";
 import "./styles/AppStyle.css";
 
 function App() {
@@ -51,6 +51,8 @@ function App() {
   const error = locationError || weatherError;
 
 
+  console.log(weather);
+
 
   // #region Rendering
   if (loading || !weather){
@@ -93,32 +95,7 @@ function App() {
  
 
       <section className="info" ref={infoSection}>
-        <section className="weather-cards">
-          <WeatherCard 
-            value={"20°"}
-            title={"Temperature"}
-            extra={"Feels Like: 19°"}
-            dropdown={"Range: 18°-21°"}
-          />
-          <WeatherCard 
-            value={"20°"}
-            title={"Temperature"}
-            extra={"Feels Like: 19°"}
-            dropdown={"Range: 18°-21°"}
-          />
-          <WeatherCard 
-            value={"20°"}
-            title={"Temperature"}
-            extra={"Feels Like: 19°"}
-            dropdown={"Range: 18°-21°"}
-          />
-          <WeatherCard 
-            value={"20°"}
-            title={"Temperature"}
-            extra={"Feels Like: 19°"}
-            dropdown={"Range: 18°-21°"}
-          />
-        </section>
+        <WeatherSection weather = {weather}/>
 
         <InfoCard 
           info={matchedPlace.info}
