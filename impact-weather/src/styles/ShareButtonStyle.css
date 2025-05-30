@@ -1,6 +1,6 @@
 .share-button{
     position: absolute;
-    bottom: 20px;
+    bottom: 24px;
     right: 20px;
 
     border: none;
@@ -12,7 +12,7 @@
 }
 
 .share-svg{
-    width: 50px;
+    width: 55px;
     height: auto
 }
 
@@ -34,6 +34,7 @@
     animation: slide-up 300ms ease forwards;
 }
 
+
 @keyframes slide-up {
     from {
         opacity: 0;
@@ -45,6 +46,13 @@
     }
 }
 
+
+
+@media screen and (max-width: 1440px) {
+    .share-svg{
+        width: 50px;
+    }
+}
 
 @media screen and (min-width: 768px) {
     .share-button:hover{

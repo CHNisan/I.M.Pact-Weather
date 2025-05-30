@@ -3,7 +3,7 @@ import '../styles/InfoCardStyle.css';
 
 function InfoCard({info, quips, images}) {
     return(
-        <section className="info-card-container">
+        <article className="info-card-container">
             <div className="info-card-slider-wrapper">
                 <div className="info-card-slider">
                     <div id="slide-0" className="info-card-slide">
@@ -54,7 +54,7 @@ function InfoCard({info, quips, images}) {
             <div className="info-card-share-button">
                 <ShareButton />
             </div>
-        </section>
+        </article>
     );
 }
 
