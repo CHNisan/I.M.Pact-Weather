@@ -44,6 +44,7 @@ function InfoCard({info, quips, images}) {
                 </div>
             </div>
 
+            {/* Anchors to scroll to the correct slide when (the dots are) clicked */}
             <div className="info-card-slider-nav">
                 <a href="#slide-0"></a>
                 <a href="#slide-1"></a>

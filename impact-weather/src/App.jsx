@@ -45,6 +45,7 @@ function App() {
   //#endregion
 
 
+  // Ref to infoSection for condition rendering with loading and error states
   const infoSection = useRef(null);
 
   const loading = isLocationLoading || isWeatherLoading;

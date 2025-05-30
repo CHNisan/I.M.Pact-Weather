@@ -8,6 +8,7 @@
 
 
 /* #region Slider */
+/* A long row of slides, confined to a container that displays only one at a time, that are scrolled left or right depending on the anchor being clicked */
 .info-card-slider-wrapper{
     position: relative;
     border-radius: 15px;
