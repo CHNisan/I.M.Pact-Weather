@@ -63,22 +63,8 @@ function App() {
   if (error){
     return (
       <>
-        <div className="text-red-500 font-medium mb-4">{error}</div>
-        <div className="flex flex-col space-y-2">
-          <button 
-            className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
-          >
-            Try Again
-          </button>
-          
-          {error.includes("Location access denied") && (
-            <button 
-              className="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600"
-            >
-              Use Approximate Location
-            </button>
-          )}
-        </div>
+        <p className="error-message">{error}</p>
+        <button className="error-retry-button" onClick={fetchLocation}>Try Again</button>
       </>
     );
   }
