@@ -3,7 +3,6 @@ import useLocation from './hooks/useLocation';
 import useWeather from './hooks/useWeather';
 import {matchPlace} from './services/matchingService'
 import IntroDisplay from "./components/IntroDisplay.jsx";
-import WeatherCard from "./components/WeatherCard.jsx";
 import WeatherSection from "./components/WeatherSection.jsx";
 import InfoCard from "./components/InfoCard.jsx";
 import "./styles/AppStyle.css";
@@ -56,17 +55,17 @@ function App() {
 
 
   // #region Rendering
-  if (loading || !weather){
-    return <></>;
-  }
-
   if (error){
     return (
-      <>
+      <div className="error">
         <p className="error-message">{error}</p>
-        <button className="error-retry-button" onClick={fetchLocation}>Try Again</button>
-      </>
+        <button className="error-retry" onClick={fetchLocation}>Try Again</button>
+      </div>
     );
+  }
+
+  if (loading || !weather){
+    return <></>;
   }
 
   return (

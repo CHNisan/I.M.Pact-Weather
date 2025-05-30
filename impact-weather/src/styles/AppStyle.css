@@ -5,12 +5,27 @@
     min-height: 100vh;
 }
 
+.error{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+
+    height: 100vh;
+}
+
+.error-retry{
+    padding: 0.75rem;
+
+    font-size: 1.25rem;
+}
+
 @media screen and (max-width: 1440px) {
     .info{
         gap: 2rem;
     }
 }
-
 
 @media (max-width: 1024px){
     .info{
