@@ -79,21 +79,20 @@
     margin-top: 1rem;
 
     font-size: 1.6rem;
+    font-weight: 350;
+}
+
+.weather-card-extra, .weather-card-dropdown-text{
+    font-size: 1rem;
     font-weight: 300;
 }
 
 .weather-card-extra{
     margin: 0.5rem 0 1rem 0;
-
-    font-size: 1rem;
-    font-weight: 200;
 }
 
 .weather-card-dropdown-text{
     margin: 0.75rem;
-
-    font-size: 1rem;
-    font-weight: 200;
 }
 /* #endregion */
 
@@ -153,10 +152,6 @@
         font-size: 1.2rem;
     }
 
-    .weather-card-extra, .weather-card-dropdown-text{
-        font-weight: 250;
-    }
-
     .weather-card-container:hover .weather-card-dropdown{
         max-height: 2.5rem;
     }
@@ -184,11 +179,11 @@
         margin-top: 0.5rem;
 
         font-size: 1.1rem;
-        font-weight: 350;
+        font-weight: 400;
     }
 
     .weather-card-extra, .weather-card-dropdown-text{
-        font-weight: 300;
+        font-weight: 350;
     }
 }
 /* #endregion */
