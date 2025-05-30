@@ -1,3 +1,4 @@
+import { WiThunderstorm, WiRainMix, WiRain, WiSnow, WiSmoke, WiDaySunny, WiCloud } from "react-icons/wi";
 import WeatherCard from "./WeatherCard";
 import "../styles/WeatherSectionStyle.css";
 
@@ -28,35 +29,52 @@ function WeatherSection({weather}) {
     }
 
     function getConditionIcon(condition){
-        
+        switch(condition){
+            case "Thunderstorm":
+                return <WiThunderstorm />
+            case "Drizzle":
+                return <WiRainMix />
+            case "Rain":
+                return <WiRain />
+            case "Snow":
+                return <WiSnow />
+            case "Atmosphere":
+                return <WiSmoke />
+            case "Clear":
+                return <WiDaySunny />
+            case "Clouds":
+                return <WiCloud />
+            default:
+                return
+        }
     }
 
 
     return (
         <article className="weather-section">
             <WeatherCard 
-            value={`${Math.round(weather?.weatherData?.main?.temp)}°`}
-            title={"Temperature"}
-            extra={`Feels Like: ${Math.round(weather?.weatherData?.main?.feels_like)}°`}
-            dropdown={`Range: ${Math.round(weather?.weatherData?.main?.temp_min)}°-${Math.round(weather?.weatherData?.main?.temp_max)}°`}
+                value={`${Math.round(weather?.weatherData?.main?.temp)}°`}
+                title={"Temperature"}
+                extra={`Feels Like: ${Math.round(weather?.weatherData?.main?.feels_like)}°`}
+                dropdown={`Range: ${Math.round(weather?.weatherData?.main?.temp_min)}°-${Math.round(weather?.weatherData?.main?.temp_max)}°`}
             />
             <WeatherCard 
-            value={"20°"}
-            title={"Condition"}
-            extra={weather?.weatherData?.weather[0]?.main}
-            dropdown={"Visibility: 19°"}
+                icon={getConditionIcon(weather?.weatherData?.weather[0]?.main)} // Icon passed down rather than value (so will not be in a <p> element)
+                title={"Condition"}
+                extra={weather?.weatherData?.weather[0]?.main}
+                dropdown={"Visibility: 19°"}
             />
             <WeatherCard 
-            value={`${weather?.weatherData?.main?.humidity}%`}
-            title={"Humidity"}
-            extra={`Rating: ${getHumidityRating(weather?.weatherData?.main?.humidity)}`}
-            dropdown={`Pressure: ${weather?.weatherData?.main?.pressure}`}
+                value={`${weather?.weatherData?.main?.humidity}%`}
+                title={"Humidity"}
+                extra={`Rating: ${getHumidityRating(weather?.weatherData?.main?.humidity)}`}
+                dropdown={`Pressure: ${weather?.weatherData?.main?.pressure}`}
             />
             <WeatherCard 
-            value={`${Math.round(weather?.weatherData?.wind?.speed)}`}
-            title={"Wind (km/h)"}
-            extra={`Direction: ${angleToCompassDirection(weather?.weatherData?.wind?.deg)}`}
-            dropdown={"idk look outside"}
+                value={`${Math.round(weather?.weatherData?.wind?.speed)}`}
+                title={"Wind (km/h)"}
+                extra={`Direction: ${angleToCompassDirection(weather?.weatherData?.wind?.deg)}`}
+                dropdown={"idk look outside"}
             />
         </article>
     );

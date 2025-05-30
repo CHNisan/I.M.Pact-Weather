@@ -69,6 +69,12 @@
     letter-spacing: 0.2rem;
 }
 
+.weather-card-icon{
+    margin-top: 1rem;
+
+    font-size: 6.25rem;
+}
+
 .weather-card-title{
     margin-top: 1rem;
 
@@ -105,6 +111,12 @@
         font-size: 4rem;
     }
 
+    .weather-card-icon{
+        margin-top: 0.875rem;
+
+        font-size: 5.6875rem;
+    }
+
     .weather-card-title{
         margin-top: 1rem;
 
@@ -127,6 +139,12 @@
 
         font-size: 3.5rem;
         letter-spacing: 0.1rem;
+    }
+
+    .weather-card-icon{
+        margin-top: 0.75rem;
+
+        font-size: 5rem;
     }
 
     .weather-card-title{
@@ -154,6 +172,12 @@
         margin-top: 1.25rem;
 
         font-size: 3.25rem;
+    }
+
+    .weather-card-icon{
+        margin-top: 0.625rem;
+
+        font-size: 4.5625rem;
     }
 
     .weather-card-title{
