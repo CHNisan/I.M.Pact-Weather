@@ -5,7 +5,7 @@
  * @param {string} apiKey - OpenWeatherMap API key
  * @returns {Promise<Object>} Weather data
  */
-export async function getWeatherByCoordinates(lat, lon, apiKey) {
+export async function getWeatherByCoordinates(lat, lon, apiKey, isMetric=true) {
     // Parameter validation
     if (lat === null || lon === null || isNaN(lat) || isNaN(lon)) {
         throw new Error("Invalid coordinates: Latitude and longitude must be valid numbers");
@@ -15,7 +15,7 @@ export async function getWeatherByCoordinates(lat, lon, apiKey) {
         throw new Error("Missing API key for weather service");
     }
 
-    const endpoint = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
+    const endpoint = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=${isMetric ? "metric" : "imperial"}`;
   
     try {
         // Add timeout to fetch using AbortController
