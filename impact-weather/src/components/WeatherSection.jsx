@@ -5,6 +5,7 @@ import "../styles/WeatherSectionStyle.css";
 function WeatherSection({weather, isMetric=true}) {
     //#region Ratings
     const visibilityRatings = [
+        // In meters visible
         { min: 0, max: 500, label: "Very Low" },
         { min: 501, max: 2000, label: "Low" },
         { min: 2001, max: 5000, label: "Moderate" },
@@ -13,6 +14,7 @@ function WeatherSection({weather, isMetric=true}) {
     ];
 
     const humidityRatings = [
+        // In percentage air saturation
         { min: 0, max: 20, label: "Very Low" },
         { min: 21, max: 40, label: "Low" },
         { min: 41, max: 60, label: "Moderate" },
