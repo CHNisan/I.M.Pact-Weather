@@ -64,7 +64,7 @@
 .weather-card-value{
     margin-top: 2rem;
 
-    font-size: 4.33rem;
+    font-size: 4rem;
     font-weight: 300;
     letter-spacing: 0.2rem;
 }
@@ -72,7 +72,7 @@
 .weather-card-icon{
     margin-top: 1rem;
 
-    font-size: 6.25rem;
+    font-size: 5.8125rem;
 }
 
 .weather-card-title{
@@ -107,13 +107,13 @@
     .weather-card-value{
         margin-top: 1.75rem;
 
-        font-size: 4rem;
+        font-size: 3.75rem;
     }
 
     .weather-card-icon{
         margin-top: 0.875rem;
 
-        font-size: 5.6875rem;
+        font-size: 5.375rem;
     }
 
     .weather-card-title{
