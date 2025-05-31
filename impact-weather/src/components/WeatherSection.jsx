@@ -72,7 +72,7 @@ function WeatherSection({weather}) {
             />
             <WeatherCard 
                 value={`${Math.round(weather?.weatherData?.wind?.speed)}`}
-                title={"Wind (km/h)"}
+                title={"Wind (m/s)"}
                 extra={`Direction: ${angleToCompassDirection(weather?.weatherData?.wind?.deg)}`}
                 dropdown={"idk look outside"}
             />

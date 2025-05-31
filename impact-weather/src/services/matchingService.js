@@ -5,9 +5,13 @@ import placeData from "../data/placeData";
  * @param {Object} weatherData - Weather data
  * @returns {Object|null} Place data or null if no match is found
  */
-export function matchPlace(weatherData) {
+export function matchPlace(weatherData, isMetric=true) {
+    function fahrenheitToCelsius(temp){
+        return (temp - 32) * 5/9
+    }
+
     try{
-        const currentTemp = weatherData?.weatherData?.main?.temp;
+        const currentTemp = isMetric ? weatherData?.weatherData?.main?.temp : fahrenheitToCelsius(weatherData?.weatherData?.main?.temp);
         const conditionCode = weatherData?.weatherData?.weather[0]?.id;
 
         // Find a place with matching temperature range
