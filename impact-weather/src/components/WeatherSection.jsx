@@ -82,7 +82,7 @@ function WeatherSection({weather, isMetric=true}) {
             <WeatherCard 
                 icon={getConditionIcon(weather?.weatherData?.weather[0]?.main)} // Icon passed down rather than value (so will not be in a <p> element)
                 title={"Condition"}
-                extra={weather?.weatherData?.weather[0]?.main}
+                extra={weather?.weatherData?.weather[0]?.main} // Condition name
                 dropdown={`Visibility: ${getVisibilityRating(weather?.weatherData?.visibility)}`}
             />
             {/* Humidity */}
