@@ -28,7 +28,6 @@ export function useLocation() {
 
       if (!useIPFallbackFirst) {
         try {
-          // Try fallback to approximate
           const fallbackCoordinates = await getApproximateLocationFromIP();
           setLocation({ latitude: fallbackCoordinates.latitude, longitude: fallbackCoordinates.longitude});
           setIsApproximateLocation(true);

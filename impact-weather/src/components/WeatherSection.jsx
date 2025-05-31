@@ -2,7 +2,8 @@ import { WiThunderstorm, WiRainMix, WiRain, WiSnow, WiSmoke, WiDaySunny, WiCloud
 import WeatherCard from "./WeatherCard";
 import "../styles/WeatherSectionStyle.css";
 
-function WeatherSection({weather}) {
+function WeatherSection({weather, isMetric=true}) {
+    //#region Ratings
     const humidityRatings = [
         { min: 0, max: 20, label: "Very Low" },
         { min: 21, max: 40, label: "Low" },
@@ -11,8 +12,10 @@ function WeatherSection({weather}) {
         { min: 71, max: 90, label: "Very High" },
         { min: 91, max: 100, label: "Extreme" }
     ];
+    //#endregion
 
 
+    //#region Help functions
     function getHumidityRating(humidity){
         const rating = humidityRatings.find(r => humidity >= r.min && humidity <= r.max);
         return rating ? rating.label : "Invalid";
@@ -48,6 +51,7 @@ function WeatherSection({weather}) {
                 return
         }
     }
+    //#endregion
 
 
     return (
@@ -72,7 +76,7 @@ function WeatherSection({weather}) {
             />
             <WeatherCard 
                 value={`${Math.round(weather?.weatherData?.wind?.speed)}`}
-                title={"Wind (m/s)"}
+                title={`Wind (${isMetric ? "m/s" : "mph"})`} // Switch units depending on if the metric system is being used
                 extra={`Direction: ${angleToCompassDirection(weather?.weatherData?.wind?.deg)}`}
                 dropdown={"idk look outside"}
             />

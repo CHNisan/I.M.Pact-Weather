@@ -5,12 +5,22 @@ import {matchPlace} from './services/matchingService'
 import IntroDisplay from "./components/IntroDisplay.jsx";
 import WeatherSection from "./components/WeatherSection.jsx";
 import InfoCard from "./components/InfoCard.jsx";
+import imperialLocales from "./data/localMeasurementSystemData.js";
 import "./styles/AppStyle.css";
 
 function App() {
   //#region State
-    const [matchedPlace, setMatchedPlace] = useState()
-    const [currCharacter, setCurrCharacter] = useState()
+    const [matchedPlace, setMatchedPlace] = useState();
+    const [currCharacter, setCurrCharacter] = useState();
+    const [isMetric, setIsMetric] = useState(() => { // Set to imperial system for measurments if the users language local is in a region that uses it
+      const userLanguage = navigator.language || navigator.userLanguage;
+      if (imperialLocales.includes(userLanguage)){
+        return false;
+      }
+      else{
+        return true;
+      }
+    });
   //endregion
 
 
@@ -28,10 +38,10 @@ function App() {
     isWeatherLoading,
     weatherError,
     fetchWeather
-  } = useWeather(location?.latitude, location?.longitude);
+  } = useWeather(location?.latitude, location?.longitude, isMetric);
 
   useEffect(() => {
-    setMatchedPlace(matchPlace(weather))
+    setMatchedPlace(matchPlace(weather, isMetric))
   }, [weather])
 
   useEffect(() => { 
@@ -81,7 +91,10 @@ function App() {
  
 
       <section className="info" ref={infoSection}>
-        <WeatherSection weather = {weather}/>
+        <WeatherSection 
+          weather = {weather}
+          isMetric={isMetric}
+        />
 
         <InfoCard 
           info={matchedPlace.info}

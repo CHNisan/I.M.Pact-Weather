@@ -7,7 +7,7 @@ import { getWeatherByCoordinates } from '../services/weatherService.js';
  * @param {number|null} longitude - The longitude coordinate
  * @returns {Object} Weather data and related functions
  */
-export function useWeather(latitude, longitude) {
+export function useWeather(latitude, longitude, isMetric=true) {
   const [weather, setWeather] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -34,7 +34,7 @@ export function useWeather(latitude, longitude) {
 
     setIsLoading(true);
     try {
-      const data = await getWeatherByCoordinates(latitude, longitude, API_KEY);
+      const data = await getWeatherByCoordinates(latitude, longitude, API_KEY, isMetric);
       setWeather(data);
       setError(null);
       console.log("Got weather:", data);
