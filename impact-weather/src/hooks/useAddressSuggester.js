@@ -29,8 +29,8 @@ export function useAddressSuggester(){
             const suggestionError = new Error(
                 "Unable to find locations. Please try again."
             );
-            suggestionError.status = response.status;
-            suggestionError.statusText = response.statusText;
+            suggestionError.status = err.status;
+            suggestionError.statusText = err.statusText;
             setError(suggestionError)
             setSuggestions([]);
         } finally {
