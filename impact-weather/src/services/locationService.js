@@ -90,12 +90,55 @@ export async function getApproximateLocationFromIP() {
         
         const data = await response.json();
         return {
-            latitude: data.latitude,
-            longitude: data.longitude,
+            latitude: data?.latitude,
+            longitude: data?.longitude,
             isApproximate: true 
         };
     } catch (error) {
         console.error('IP location fallback failed:', error);
+        throw error;
+    }
+}
+
+
+
+/**
+ * Gets an array of five or fewer suggestions for address or places fields based on the provided part of the address
+ * @param {string} address - partial/full address
+ * @param {string} apiKey - Your Geoapify API key
+ * @returns {Promise<Array<Object>>} Array of location suggestion objects (Geoapify Feature objects)
+ */
+export async function getLocationSuggestionsFromAddress(address, apiKey){
+    // Input validation
+    if (!address?.trim()){
+        throw new Error("Address parameter is required");
+    }
+
+    try {
+        const encodedAddress = encodeURIComponent(address.trim()); // Addresses special characters
+        const response = await fetch(`https://api.geoapify.com/v1/geocode/autocomplete?text=${encodedAddress}&limit=5&apiKey=${apiKey}`);
+        
+        if (!response.ok){
+            const errorText = await response.text();
+            const locationError = new Error(
+                "Failed to fetch location suggestions from address"
+            );
+            locationError.status = response.status;
+            locationError.statusText = response.statusText;
+            locationError.responseText = errorText;
+            throw locationError;
+        } 
+        
+        const data = await response.json();
+
+        // Validate response structure
+        if (!data || !Array.isArray(data.features)) {
+            throw new Error("Invalid response format from location suggestions from address");
+        }
+
+        return data.features;
+    } catch (error) {
+        console.error(`Location suggestions from address failed:, ${error}`);
         throw error;
     }
 }
