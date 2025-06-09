@@ -7,7 +7,7 @@ import { getLocationFromGPS, getApproximateLocationFromIP } from '../services/lo
  */
 export function useLocation() {
   const [location, setLocation] = useState({ latitude: null, longitude: null});
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   const [isApproximateLocation, setIsApproximateLocation] = useState(false);
 

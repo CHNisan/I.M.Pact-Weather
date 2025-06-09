@@ -106,7 +106,7 @@ export async function getApproximateLocationFromIP() {
  * Gets an array of five or fewer suggestions for address or places fields based on the provided part of the address
  * @param {string} address - partial/full address
  * @param {string} apiKey - Your Geoapify API key
- * @returns {Promise<Array<Object>>} Array of location suggestion objects (Geoapify Feature objects)
+ * @returns {Promise<Object>} Array of location suggestion objects (Geoapify Feature objects)
  */
 export async function getLocationSuggestionsFromAddress(address, apiKey){
     // Input validation

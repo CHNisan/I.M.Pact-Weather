@@ -4,18 +4,19 @@ import { getLocationSuggestionsFromAddress } from "../services/locationService";
 /**
  * Custom hook for fetching location suggests based of an full/partial address
  * @param {string} query - The input address query 
- * @returns {Array<Object>} - Array of location suggestion objects (Geoapify Feature objects) and related functions
+ * @returns {<Object>} - Array of location suggestion objects (Geoapify Feature objects) and related functions
  */
 export function useAddressSuggester(){
     const [suggestions, setSuggestions] = useState([]);
-    const [isLoading, setIsLoading] = useState(true);
+    const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
     const API_KEY = "6e011eab838a460f96f0fa3f2e6e651c";
 
     const fetchAddressSuggestions = useCallback(async (query) => {
         // Input validation
         if(!query.trim()){
-            setSuggestions([])
+            setSuggestions([]);
+            setError(null);
             return;
         }
 
@@ -29,8 +30,9 @@ export function useAddressSuggester(){
             const suggestionError = new Error(
                 "Unable to find locations. Please try again."
             );
-            suggestionError.status = err.status;
-            suggestionError.statusText = err.statusText;
+            suggestionError.status = err?.status;
+            suggestionError.statusText = err?.statusText;
+            suggestionError.responseText = err?.responseText;
             setError(suggestionError)
             setSuggestions([]);
         } finally {
