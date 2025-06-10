@@ -60,10 +60,6 @@ function App() {
   const loading = isLocationLoading || isWeatherLoading;
   const error = locationError || weatherError;
 
-
-  console.log(weather);
-
-
   // #region Rendering
   if (error){
     return (
