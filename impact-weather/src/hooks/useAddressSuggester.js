@@ -12,7 +12,7 @@ export function useAddressSuggester(){
     const [error, setError] = useState(null);
     const API_KEY = "6e011eab838a460f96f0fa3f2e6e651c";
 
-    const fetchAddressSuggestions = useCallback(async (query) => {
+    const fetchAddressSuggestions = useCallback(async (query="") => {
         // Input validation
         if(!query.trim()){
             setSuggestions([]);
