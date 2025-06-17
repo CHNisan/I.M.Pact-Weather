@@ -2,6 +2,8 @@ import { useState, useEffect, useRef } from 'react';
 import { useAddressSuggester } from '../hooks/useAddressSuggester';
 import '../styles/SearchBarStyle.css';
 
+const DEBOUNCE_TIME = 300; // How long the debouce lasts (milliseconds)
+
 function SearchBar() {
     const {
         addressSuggestions,
@@ -10,23 +12,28 @@ function SearchBar() {
         fetchAddressSuggestions
       } = useAddressSuggester();
 
-    const [search, setSearch] = useState("");
+    const [query, setQuery] = useState("");
+    const [addressCache, setAddressCache] = useState(() => new Map);
     const debounceTimer = useRef(null);
 
+    // Handle debouncing
     useEffect(() => {
         if(debounceTimer.current){
             clearTimeout(debounceTimer.current);
         }
 
-        if (search.trim().length > 2){
+        const trimmedQuery = query.trim().toLowerCase();
+
+        // Only search for addresses if the query is longer than two letters
+        if (trimmedQuery.length > 2){
             debounceTimer.current = setTimeout(async () => {
                 try {
-                   await fetchAddressSuggestions(search.trim());
+                   await fetchAddressSuggestions(trimmedQuery);
                 }
                 catch(err){
                     console.error(err);
                 }
-            }, (300));
+            }, (DEBOUNCE_TIME));
         }
 
         return () => {
@@ -34,15 +41,16 @@ function SearchBar() {
                 clearTimeout(debounceTimer.current);
             }
         };
-    }, [search, fetchAddressSuggestions]);
+    }, [query, fetchAddressSuggestions]);
 
+    // For debuging purposes
      useEffect(() => {
         console.log(addressSuggestions);
     }, [addressSuggestions]);
 
 
     function handleChange(event){
-        setSearch(event.currentTarget.value);
+        setQuery(event.currentTarget.value);
     }
 
     return(
@@ -52,7 +60,7 @@ function SearchBar() {
                 placeholder="e.g London"
                 name="searchInput"
                 onChange={handleChange}
-                value={search}
+                value={query}
             />
         </label>
     );

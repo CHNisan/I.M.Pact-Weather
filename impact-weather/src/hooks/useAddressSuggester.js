@@ -1,5 +1,7 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, useRef } from "react";
 import { getLocationSuggestionsFromAddress } from "../services/locationService";
+
+const MAX_CACHE_SIZE = 50; // Maximum number of cached queries
 
 /**
  * Custom hook for fetching location suggests based of an full/partial address
@@ -10,6 +12,7 @@ export function useAddressSuggester(){
     const [suggestions, setSuggestions] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
+    const cache = useRef(new Map()); // Cache of queried addresses
     const API_KEY = "6e011eab838a460f96f0fa3f2e6e651c";
 
     const fetchAddressSuggestions = useCallback(async (query="") => {
@@ -20,11 +23,39 @@ export function useAddressSuggester(){
             return;
         }
 
+        const trimmedQuery = query.trim();
+
+        // Check cache first
+        if (cache.current.has(trimmedQuery)) {
+            console.log('Cache hit for:', trimmedQuery);
+            // Move to end (most recently used) by delete and re-insert
+            const cachedResult = cache.current.get(trimmedQuery);
+            cache.current.delete(trimmedQuery);
+            cache.current.set(trimmedQuery, cachedResult);
+            
+            setSuggestions(cachedResult);
+            setIsLoading(false);
+            setError(null);
+            return;
+        }
+
         setIsLoading(true);
         setError(null);
 
         try{
-            const results = await getLocationSuggestionsFromAddress(query, API_KEY);
+            const results = await getLocationSuggestionsFromAddress(trimmedQuery, API_KEY);
+            
+            if (cache.current.size >= MAX_CACHE_SIZE) {
+                // Remove oldest entry (first in insertion order)
+                const oldestQuery = cache.current.keys().next().value;
+                cache.current.delete(oldestQuery);
+                console.log('Removed from cache:', oldestQuery);
+            }
+            
+            // Add new entry to cache
+            cache.current.set(trimmedQuery, results);
+            console.log('Added to cache:', trimmedQuery, 'Cache size:', cache.current.size);
+            
             setSuggestions(results);
         } catch(err) {
             const suggestionError = new Error(
