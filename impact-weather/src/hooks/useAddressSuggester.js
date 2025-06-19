@@ -13,9 +13,16 @@ export function useAddressSuggester(){
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
     const cache = useRef(new Map()); // Cache of queried addresses
+    const abortController = useRef(null);
     const API_KEY = "6e011eab838a460f96f0fa3f2e6e651c";
 
     const fetchAddressSuggestions = useCallback(async (query="") => {
+        if (abortController.current){
+            abortController.current.abort();
+        }
+
+        abortController.current = new AbortController();
+
         // Input validation
         if(!query.trim()){
             setSuggestions([]);
@@ -27,7 +34,6 @@ export function useAddressSuggester(){
 
         // Check cache first
         if (cache.current.has(trimmedQuery)) {
-            console.log('Cache hit for:', trimmedQuery);
             // Move to end (most recently used) by delete and re-insert
             const cachedResult = cache.current.get(trimmedQuery);
             cache.current.delete(trimmedQuery);
@@ -43,29 +49,29 @@ export function useAddressSuggester(){
         setError(null);
 
         try{
-            const results = await getLocationSuggestionsFromAddress(trimmedQuery, API_KEY);
+            const results = await getLocationSuggestionsFromAddress(trimmedQuery, API_KEY, abortController.current.signal);
             
             if (cache.current.size >= MAX_CACHE_SIZE) {
                 // Remove oldest entry (first in insertion order)
                 const oldestQuery = cache.current.keys().next().value;
                 cache.current.delete(oldestQuery);
-                console.log('Removed from cache:', oldestQuery);
             }
             
             // Add new entry to cache
             cache.current.set(trimmedQuery, results);
-            console.log('Added to cache:', trimmedQuery, 'Cache size:', cache.current.size);
             
             setSuggestions(results);
         } catch(err) {
-            const suggestionError = new Error(
-                "Unable to find locations. Please try again."
-            );
-            suggestionError.status = err?.status;
-            suggestionError.statusText = err?.statusText;
-            suggestionError.responseText = err?.responseText;
-            setError(suggestionError)
-            setSuggestions([]);
+            if (err.name !== 'AbortError') {
+                const suggestionError = new Error(
+                    "Unable to find locations. Please try again."
+                );
+                suggestionError.status = err?.status;
+                suggestionError.statusText = err?.statusText;
+                suggestionError.responseText = err?.responseText;
+                setError(suggestionError)
+                setSuggestions([]);
+            }
         } finally {
             setIsLoading(false);
         }

@@ -108,7 +108,7 @@ export async function getApproximateLocationFromIP() {
  * @param {string} apiKey - Your Geoapify API key
  * @returns {Promise<Object>} Array of location suggestion objects (Geoapify Feature objects)
  */
-export async function getLocationSuggestionsFromAddress(address, apiKey){
+export async function getLocationSuggestionsFromAddress(address, apiKey, abortSignal = null){
     // Input validation
     if (!address?.trim()){
         throw new Error("Address parameter is required");
@@ -116,7 +116,7 @@ export async function getLocationSuggestionsFromAddress(address, apiKey){
 
     try {
         const encodedAddress = encodeURIComponent(address.trim()); // Addresses special characters
-        const response = await fetch(`https://api.geoapify.com/v1/geocode/autocomplete?text=${encodedAddress}&limit=5&apiKey=${apiKey}`);
+        const response = await fetch(`https://api.geoapify.com/v1/geocode/autocomplete?text=${encodedAddress}&limit=5&apiKey=${apiKey}`, {signal: abortSignal});
         
         if (!response.ok){
             const errorText = await response.text();
@@ -138,7 +138,6 @@ export async function getLocationSuggestionsFromAddress(address, apiKey){
 
         return data.features;
     } catch (error) {
-        console.error(`Location suggestions from address failed:, ${error}`);
         throw error;
     }
 }
